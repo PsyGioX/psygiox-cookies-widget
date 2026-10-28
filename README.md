@@ -1,0 +1,1 @@
+# psygiox-cookies-widget
