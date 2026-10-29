@@ -536,6 +536,7 @@
   function schedule() { if (sched) return; sched = true; raf(function () { sched = false; refreshLive(); refreshCatLists(); }); }
 
   /* ============================== UI: markup ============================== */
+  var CROSS = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   var FAB = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 4 4 0 0 0 21 12.8z"/><path d="M8.5 9.5h.01M11 15h.01M16 14h.01M7.5 13h.01"/></svg>';
   function catLabel(id) {
     if (id === 'unknown') return T('st.unknown');
@@ -575,7 +576,7 @@
   function modalHtml() {
     var L = linksHtml();
     return '<div class="pc-backdrop" data-pc="close"></div><div class="pc-panel" tabindex="-1">' +
-      '<div class="pc-head"><h2 id="pc-mt" class="pc-h">' + H('modal.title') + '</h2><button type="button" class="pc-x" data-pc="close" aria-label="' + esc(T('modal.close')) + '">&times;</button></div>' +
+      '<div class="pc-head"><h2 id="pc-mt" class="pc-h">' + H('modal.title') + '</h2><button type="button" class="pc-x" data-pc="close" aria-label="' + esc(T('modal.close')) + '">' + CROSS + '</button></div>' +
       '<div class="pc-tabs" role="tablist"><button type="button" role="tab" class="pc-tab" id="pc-tab-prefs" aria-controls="pc-pane-prefs" data-pc-tab="prefs">' + H('tab.prefs') + '</button>' +
       '<button type="button" role="tab" class="pc-tab" id="pc-tab-live" aria-controls="pc-pane-live" data-pc-tab="live">' + H('tab.live') + '<span class="pc-dot" aria-hidden="true"></span></button></div>' +
       '<div class="pc-body"><div role="tabpanel" id="pc-pane-prefs" aria-labelledby="pc-tab-prefs" class="pc-pane"><p class="pc-p">' + H('modal.intro') + (cfg.operator ? ' ' + H('modal.operator', { operator: cfg.operator }) : '') + '</p>' +
@@ -590,12 +591,12 @@
   function liveHtml() {
     return '<div class="pc-live"><div class="pc-lh"><h3 class="pc-h3">' + H('live.title') + '</h3><span class="pc-badge pc-badge--' + esc(cfg.guard) + '">' + H('live.guard', { mode: cfg.guard }) + '</span></div>' +
       '<p class="pc-total" data-live="total"></p><div class="pc-stats" data-live="stats"></div>' +
-      '<div class="pc-ctl"><button type="button" class="pc-btn pc-btn--ghost pc-btn--sm" data-pc="live-pause"></button><button type="button" class="pc-btn pc-btn--ghost pc-btn--sm" data-pc="live-clear">' + H('live.clear') + '</button></div>' +
+      '<div class="pc-ctl"><button type="button" class="pc-btn pc-btn--ghost pc-btn--sm" data-pc="live-pause">' + H(S.paused ? 'live.resume' : 'live.pause') + '</button><button type="button" class="pc-btn pc-btn--ghost pc-btn--sm" data-pc="live-clear">' + H('live.clear') + '</button></div>' +
       '<div class="pc-tw"><table class="pc-tbl"><thead><tr><th>' + H('live.col.name') + '</th><th>' + H('live.col.cat') + '</th><th>' + H('live.col.status') + '</th><th>' + H('live.col.size') + '</th><th>' + H('live.col.time') + '</th></tr></thead><tbody data-live="rows"></tbody></table></div>' +
       '<h3 class="pc-h3">' + H('live.log') + '</h3><ol class="pc-log" data-live="log" role="log" aria-live="off"></ol><p class="pc-small">' + H('live.hint') + '</p></div>';
   }
   function fillLive(v, flash) {
-    var live = qs(v, '.pc-live'); if (!live) return;
+    var live = v.classList && v.classList.contains('pc-live') ? v : qs(v, '.pc-live'); if (!live) return;
     var list = jarList(), s = stats(), f = function (k) { return qs(live, '[data-live="' + k + '"]'); };
     f('total').textContent = T('live.total', { n: s.present });
     f('stats').innerHTML = [['allowed', s.allowed, 'ok'], ['blocked', s.blocked + s.purged, 'bad'], ['unknown', s.unknown, 'mute'], ['violation', s.violations, 'warn']].map(function (x) {
@@ -680,6 +681,7 @@
     S.modal.innerHTML = modalHtml();
     S.fab.setAttribute('aria-label', T('fab.label')); S.fab.title = T('fab.label'); S.fab.innerHTML = FAB; S.fab.setAttribute('data-h', cfg.fabPosition);
     views = views.filter(function (v) { return v.__embed; }); views.unshift(qs(S.modal, '.pc-live'));
+    fillLive(views[0], false);
     phs.forEach(fillPlaceholder);
     selectTab(wasOpen ? tab : 'prefs');
     refreshCatLists(); refreshLive();
@@ -712,6 +714,7 @@
     var was = S.modal.hidden;
     S.modal.innerHTML = modalHtml();
     views = views.filter(function (v) { return v.__embed; }); views.unshift(qs(S.modal, '.pc-live'));
+    fillLive(views[0], false);
     selectTab(tab || 'prefs'); refreshCatLists();
     S.modal.hidden = false; doc.documentElement.classList.add('pc-lock');
     qs(S.modal, '.pc-panel').focus();

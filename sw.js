@@ -7,7 +7,7 @@
  * BUILD is rewritten by `npm run build:widget` (version + hash of dist/SHA256SUMS),
  * so installed copies refresh whenever the widget changes.
  */
-const BUILD = 'v1.0.0-7da5e2bddd';
+const BUILD = 'v1.0.0-1a57c42f18';
 const CACHE = 'pgx-cookies-' + BUILD;
 const SHELL = [
   '/', '/en/', '/offline.html', '/assets/site.css', '/assets/site.js', '/assets/brand/logo.svg',

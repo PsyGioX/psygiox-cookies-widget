@@ -82,7 +82,7 @@ html.pc-lock { overflow: hidden; }
 .pc-panel { position: relative; display: flex; flex-direction: column; width: 100%; max-width: 720px; max-height: 94vh; max-height: 94dvh; background: var(--pc-bg); color: var(--pc-fg); border-radius: var(--pc-radius) var(--pc-radius) 0 0; box-shadow: var(--pc-shadow); outline: 0; animation: pc-up .28s ease; }
 .pc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px 8px; }
 .pc-head .pc-h { margin: 0; font-size: 1.2rem; }
-.pc-x { width: 44px; height: 44px; border-radius: 50%; background: transparent; font-size: 1.8rem; line-height: 1; cursor: pointer; }
+.pc-x { display: grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; border-radius: 50%; background: transparent; color: var(--pc-fg); cursor: pointer; }
 .pc-x:hover { background: var(--pc-surface); }
 .pc-tabs { display: flex; gap: 4px; padding: 0 14px; border-bottom: 1px solid var(--pc-line); }
 .pc-tab { position: relative; padding: 10px 14px; font-weight: 700; color: var(--pc-muted); border-bottom: 3px solid transparent; margin-bottom: -1px; cursor: pointer; background: none; }

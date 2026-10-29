@@ -63,28 +63,28 @@
       "integrity": "sha384-Wp9VZbDZiwWouX57Y8ULlIQ30M1VOsO7biHIHc4xUyjwpAbN+gCWUF6ebcYavuUi"
     },
     "psygiox-cookies.bundle.min.js": {
-      "bytes": 82921,
-      "gzip": 28287,
-      "sha256": "c0e870d192b01e1c956c6591958f8013462387e0da0f15d22bc6b17c0462cac5",
-      "sha384": "rFtSaJsmOL9U8SmyZ6KO7GLYh9ZX74qlAWgP7jRsmXiwj+vM1+yOMoNgc+bujndY",
-      "sha512": "+ssq07U74a9sI7iD9uh/QA1/PbRiYX9c2SGpSIlt+Qm9oKDthbrEvBEjRLXnPZevgoinfHLoIq5mFrHZs5C7AA==",
-      "integrity": "sha384-rFtSaJsmOL9U8SmyZ6KO7GLYh9ZX74qlAWgP7jRsmXiwj+vM1+yOMoNgc+bujndY"
+      "bytes": 83184,
+      "gzip": 28341,
+      "sha256": "7338091d1d093840518502155e7cbb70d02c3a4d0b7569df74f744ab9606f0d0",
+      "sha384": "jPD5MsQ0yuplPpQ8W7X3nuZfgh4aPQTOBPvL+rKEjwmBDgm8ZH0sBkZl1KeTw5c3",
+      "sha512": "0lGmVhL0dUQ6PEjfC/kWqVsMPlVGo8CBfabGvivNzGpTB80KSCOwq/cDjbSa1vNFW136vnn/V3VkVxHtYJp+BA==",
+      "integrity": "sha384-jPD5MsQ0yuplPpQ8W7X3nuZfgh4aPQTOBPvL+rKEjwmBDgm8ZH0sBkZl1KeTw5c3"
     },
     "psygiox-cookies.min.css": {
-      "bytes": 13120,
-      "gzip": 3768,
-      "sha256": "c708f5621b94735d118079583e769011d1527557db3757745d5792b8c26a62d0",
-      "sha384": "zwsBm9Dt3lvBa29Z0oNTahWSOc8oqt0F/V9kpRdFVo84nYgwywlJu71Lx46ptvvh",
-      "sha512": "dRKQvu7JT/1GwYeTxERWxbk2wckelWvsp1aRvXyMFMT2tSXZ9mMKt8dqPg3WixCbIPNpL3cjoGfbMKbl8/sNyA==",
-      "integrity": "sha384-zwsBm9Dt3lvBa29Z0oNTahWSOc8oqt0F/V9kpRdFVo84nYgwywlJu71Lx46ptvvh"
+      "bytes": 13160,
+      "gzip": 3766,
+      "sha256": "490dce5902443ebb221ab74f68040ae8092f8787f4cf2c8987fe42895882a5bf",
+      "sha384": "vBKPkcJy4xxVUCiqm9cEmbGdJkXk1SG/qGxzZFijF0t3PRcBgRrAzhpZ5Npm8p1B",
+      "sha512": "M4DwjNf3ddIlaJ2KAseVZL43OTSzXqQKQH+HQw208ND67isd1gaR9qOij0wVxuBJylnJv0wobMM3gf+j/2reiw==",
+      "integrity": "sha384-vBKPkcJy4xxVUCiqm9cEmbGdJkXk1SG/qGxzZFijF0t3PRcBgRrAzhpZ5Npm8p1B"
     },
     "psygiox-cookies.min.js": {
-      "bytes": 45360,
-      "gzip": 17291,
-      "sha256": "5b35dab36bb1ab7344be221ec4c14720b6661aac3b6bfb1fc4205000792cc4e4",
-      "sha384": "r/L7zWGIvnsYetTzkmIBvUPXt0gQcDsLQJhEmkC3d86n+qB3l+S5eeix/BrwoB1T",
-      "sha512": "deCjxwPzNe5Ue7evUNCzTVTYQqtgg0wUeZP5y6pRrf/lliItl+g4ttgy4a/zmYPrTpJ/wkfyfTGRRxGj2CRn2Q==",
-      "integrity": "sha384-r/L7zWGIvnsYetTzkmIBvUPXt0gQcDsLQJhEmkC3d86n+qB3l+S5eeix/BrwoB1T"
+      "bytes": 45583,
+      "gzip": 17353,
+      "sha256": "c488b82fef369bf6e9eaff956a3195e2429853c004a722484a4feae3e5ae1e47",
+      "sha384": "9u0iIMFa4Qx/++FAD8AAd3Q9QgAsVDgdEFxDQplaPZ9ZEjiG0DALgfCgTKwVTuCS",
+      "sha512": "iRa9mY1u7xi4HqvuLmRcQLwIsWeI6nTSpZuK03RauLRhRvgVq4uWZ2V3kwvBCYfO1dRe53xTp6l0yBRjuuAqWg==",
+      "integrity": "sha384-9u0iIMFa4Qx/++FAD8AAd3Q9QgAsVDgdEFxDQplaPZ9ZEjiG0DALgfCgTKwVTuCS"
     }
   }
 }

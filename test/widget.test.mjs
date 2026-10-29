@@ -278,3 +278,29 @@ test('dist: hashes match, banners carry the copyright', () => {
   const integ = JSON.parse(dist('integrity.json'));
   assert.match(integ.files['psygiox-cookies.min.js'].integrity, /^sha384-/);
 });
+
+test('live pause button has its label immediately; close button icon is an SVG', async () => {
+  const { d, P } = await boot({ region: 'eu' });
+  P.open('settings');
+  const pause = d.querySelector('.pc-modal [data-pc=live-pause]');
+  assert.equal(pause.textContent, 'Pause');
+  assert.ok(d.querySelector('.pc-modal [data-live=total]').textContent.length > 0, 'stats are filled before the tab is opened');
+  assert.ok(d.querySelector('.pc-x svg'), 'close icon is an SVG');
+  assert.equal(d.querySelector('.pc-x').textContent.trim(), '');
+  pause.click();
+  assert.equal(d.querySelector('.pc-modal [data-pc=live-pause]').textContent, 'Resume');
+  P.i18n.set('ru');
+  assert.equal(d.querySelector('.pc-modal [data-pc=live-pause]').textContent, 'Продолжить', 'label survives a re-render while paused');
+});
+
+test('the dialog live panel shows cookies right away and updates while the tab is open', async () => {
+  const { d, P } = await boot({ region: 'eu' });
+  d.cookie = 'PHPSESSID=abc; path=/';
+  P.open('live');
+  const rows = () => [...d.querySelectorAll('.pc-modal [data-live=rows] .pc-n')].map((e) => e.textContent);
+  assert.deepEqual(rows(), ['PHPSESSID']);
+  d.cookie = 'my_pref=1; path=/';
+  await tick(60);
+  assert.deepEqual(rows().sort(), ['PHPSESSID', 'my_pref']);
+  assert.match(d.querySelector('.pc-modal [data-live=total]').textContent, /2 cookies/);
+});

@@ -65,7 +65,7 @@ git clone https://github.com/PsyGioX/psygiox-cookies-widget.git && cd psygiox-co
 npm ci
 npm run build     # минификация JS/CSS, бандл языков, хеши, архив, английская страница, sitemap
 npm run verify    # перепроверка всех хешей   (npm run verify -- https://HOST/widget/dist — проверка живого сервера)
-npm test          # 35 тестов поведения
+npm test          # 37 тестов поведения
 ```
 
 Почему первым? Виджет оборачивает `document.cookie` при загрузке. Скрипты, выполненные **до** него, могут записать куки-файлы, которых он не увидит.
@@ -122,7 +122,7 @@ widget/src/                     читаемые исходники: psygiox-coo
 widget/dist/                    сборка, SHA256SUMS, integrity.json, архив, v1.0.0/ (неизменяемая)
 widget/schema/, widget/examples/
 scripts/                        build, build-site, verify, check-headers, brand (логотип и иконки)
-test/                           35 тестов (jsdom)
+test/                           37 тестов (jsdom)
 docs/                           справочник API
 ```
 
