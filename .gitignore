@@ -1,0 +1,10 @@
+# PGX Cookies Widget · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only
+node_modules/
+.vercel/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+coverage/
+# built files ARE committed on purpose: widget/dist/, en/, favicons — Vercel serves them as is

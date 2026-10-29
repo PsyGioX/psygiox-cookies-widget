@@ -1,0 +1,28 @@
+{
+  "id": "/",
+  "name": "PGX Cookies Widget",
+  "short_name": "PGX Cookies",
+  "description": "Виджет согласия на куки-файлы с трекингом в реальном времени для ЕС, США, России и всего мира. GPL-3.0.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0c08",
+  "theme_color": "#0a0c08",
+  "categories": ["developer tools", "utilities", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Демо виджета", "short_name": "Демо", "url": "/#playground", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Подключение и хеши", "short_name": "Подключение", "url": "/#install", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "English version", "short_name": "English", "url": "/en/", "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ],
+  "copyright": "Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · GPL-3.0-only"
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- PGX Cookies Widget · example: script and iframe gate · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PGX Cookies Widget — script and iframe gate</title>
+<script src="../dist/psygiox-cookies.min.js" data-region="eu"></script>
+<!-- runs only after "analytics" is allowed; type="text/plain" keeps the browser from loading it before that -->
+<script type="text/plain" data-pc-category="analytics" src="gate.js"></script>
+</head>
+<body>
+<h1>Gate example</h1>
+<p id="state">The analytics script has not run.</p>
+<!-- the src is set only after "marketing" is allowed; until then a placeholder with a settings button is shown -->
+<iframe data-pc-category="marketing" data-pc-src="about:blank" title="Embedded content" width="320" height="120"></iframe>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{
+  "name": "psygiox-cookies",
+  "version": "1.0.0",
+  "license": "GPL-3.0-only",
+  "copyright": "Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX>",
+  "repository": "https://github.com/PsyGioX/psygiox-cookies-widget",
+  "note": "Use the integrity value as the SRI attribute. Pin the versioned folder (v1.0.0/) in production.",
+  "files": {
+    "i18n/de.min.js": {
+      "bytes": 3494,
+      "gzip": 1579,
+      "sha256": "fd3cc12d2dda178746844d655dcce2df29532524277a943970be5996e319da82",
+      "sha384": "2Cvc5kPoTcyL85d69Qsx7cwkwHhjfsP38ie908h/KC+sjqTd9LUG6AFaoDYk+sow",
+      "sha512": "J45odcY7JX6DgKxV8j7Cxy29Q+Xbwh/G5xDKs+h+SyWwTPt47H6/WXObsK1ae3j0ut25ZpqASRodA4H28ObJJg==",
+      "integrity": "sha384-2Cvc5kPoTcyL85d69Qsx7cwkwHhjfsP38ie908h/KC+sjqTd9LUG6AFaoDYk+sow"
+    },
+    "i18n/es.min.js": {
+      "bytes": 3398,
+      "gzip": 1511,
+      "sha256": "ce8435d5b5c862010f7653dc615c88bda01281cf033ca1887e9802436f3631bf",
+      "sha384": "WnUr2mAtFHyE2gzOlF/AAPBNYDVqesI/IZM8Lh8R+ERmjfnPTo7Zpx3XfWbaMEEz",
+      "sha512": "yxBzCdyfC6csxVhwAz6H/gqQVeAllxckzKtqGPnbDAHINwSkUG9YzzAbHmTrWBu/aUx7ZfqTmOkXZPVFy01Cdg==",
+      "integrity": "sha384-WnUr2mAtFHyE2gzOlF/AAPBNYDVqesI/IZM8Lh8R+ERmjfnPTo7Zpx3XfWbaMEEz"
+    },
+    "i18n/fr.min.js": {
+      "bytes": 3589,
+      "gzip": 1584,
+      "sha256": "6fa572193ae51265a1eec36dea3949b9130e8963c9fb66f10e421ff78c77632a",
+      "sha384": "b4e+iuYs66if/vQuh+p8np6dXDvm2rSuk0Pz2odXvlmvm4ILJNnBcn+eS+/8z7D4",
+      "sha512": "ikHnR97Ch+afyoZRrC7ESuJEQrptsrJ1C0m64M0NMhVbp50gULuq3nnKDNf+CHMCUHjmVUrejjr8ccx6vu3npg==",
+      "integrity": "sha384-b4e+iuYs66if/vQuh+p8np6dXDvm2rSuk0Pz2odXvlmvm4ILJNnBcn+eS+/8z7D4"
+    },
+    "i18n/it.min.js": {
+      "bytes": 3385,
+      "gzip": 1512,
+      "sha256": "61c41a8ab932b976adb95e9cc589b1ec2ea3ac3af18810c68c44029d22975c3a",
+      "sha384": "F+8aU0HsO3wQbf09xFjb4taWcKOZ/XeKsvix5vY+hdmGuQTCkwJX3NsVvYnJ4oaK",
+      "sha512": "UwXIS168/RdcZoe5gD2CJFTMSz1sGamwU4Hn4jKRuRr3+jfurO4g164p5ob3Ld6DRKwcTUVWIP4vW5JuawNPlg==",
+      "integrity": "sha384-F+8aU0HsO3wQbf09xFjb4taWcKOZ/XeKsvix5vY+hdmGuQTCkwJX3NsVvYnJ4oaK"
+    },
+    "i18n/pl.min.js": {
+      "bytes": 3565,
+      "gzip": 1636,
+      "sha256": "3fd6930ccc4ef25139829a7489511020fe71e643c5f034ab3b57bc23dd3fc318",
+      "sha384": "TYKe2zopzG0VJI3UAaETlwtPkP+zxyXvL9NMpg8EkGBGKScxiCAVams9geh433VU",
+      "sha512": "dPrwXiRkJnd8a+U7n7P8NKjgrtuXdttkk1DTnd0JXDDby4o41gFiOCouhstdbar59toTRrXs/D7zaf8S6M+38w==",
+      "integrity": "sha384-TYKe2zopzG0VJI3UAaETlwtPkP+zxyXvL9NMpg8EkGBGKScxiCAVams9geh433VU"
+    },
+    "i18n/pt.min.js": {
+      "bytes": 3394,
+      "gzip": 1505,
+      "sha256": "53f6e927ed29537c1f7333a3884d0504be98c5576c415231142b90ee937a3750",
+      "sha384": "mW0DytNQBxhr3otpU6mltkwRwS2LIydhLRHiFAhy5sUYyxu6ygBXLwrrwC/MoZYt",
+      "sha512": "gejpDneakTVLi9c/2YCJ8WtAeRlFnXLBkM1pJ1eCnuMeFdFcsmyrf9YQ43wp2i6z2nVXYl93z+w02Rp8ncivAQ==",
+      "integrity": "sha384-mW0DytNQBxhr3otpU6mltkwRwS2LIydhLRHiFAhy5sUYyxu6ygBXLwrrwC/MoZYt"
+    },
+    "i18n/uk.min.js": {
+      "bytes": 4789,
+      "gzip": 1887,
+      "sha256": "26fe4a6a05b918b13e124af667c979055f5d12f8bf64a41918b3512f56324f2a",
+      "sha384": "Wp9VZbDZiwWouX57Y8ULlIQ30M1VOsO7biHIHc4xUyjwpAbN+gCWUF6ebcYavuUi",
+      "sha512": "8x0IdCU3k/VdxoCvZrseRvuzQpMXQK4Dp+RdDnW0nqTk2hJJYTlfOr2AbgD5eBp3O/tCAq7O8MVsOjGlSrW00Q==",
+      "integrity": "sha384-Wp9VZbDZiwWouX57Y8ULlIQ30M1VOsO7biHIHc4xUyjwpAbN+gCWUF6ebcYavuUi"
+    },
+    "psygiox-cookies.bundle.min.js": {
+      "bytes": 82921,
+      "gzip": 28287,
+      "sha256": "c0e870d192b01e1c956c6591958f8013462387e0da0f15d22bc6b17c0462cac5",
+      "sha384": "rFtSaJsmOL9U8SmyZ6KO7GLYh9ZX74qlAWgP7jRsmXiwj+vM1+yOMoNgc+bujndY",
+      "sha512": "+ssq07U74a9sI7iD9uh/QA1/PbRiYX9c2SGpSIlt+Qm9oKDthbrEvBEjRLXnPZevgoinfHLoIq5mFrHZs5C7AA==",
+      "integrity": "sha384-rFtSaJsmOL9U8SmyZ6KO7GLYh9ZX74qlAWgP7jRsmXiwj+vM1+yOMoNgc+bujndY"
+    },
+    "psygiox-cookies.min.css": {
+      "bytes": 13120,
+      "gzip": 3768,
+      "sha256": "c708f5621b94735d118079583e769011d1527557db3757745d5792b8c26a62d0",
+      "sha384": "zwsBm9Dt3lvBa29Z0oNTahWSOc8oqt0F/V9kpRdFVo84nYgwywlJu71Lx46ptvvh",
+      "sha512": "dRKQvu7JT/1GwYeTxERWxbk2wckelWvsp1aRvXyMFMT2tSXZ9mMKt8dqPg3WixCbIPNpL3cjoGfbMKbl8/sNyA==",
+      "integrity": "sha384-zwsBm9Dt3lvBa29Z0oNTahWSOc8oqt0F/V9kpRdFVo84nYgwywlJu71Lx46ptvvh"
+    },
+    "psygiox-cookies.min.js": {
+      "bytes": 45360,
+      "gzip": 17291,
+      "sha256": "5b35dab36bb1ab7344be221ec4c14720b6661aac3b6bfb1fc4205000792cc4e4",
+      "sha384": "r/L7zWGIvnsYetTzkmIBvUPXt0gQcDsLQJhEmkC3d86n+qB3l+S5eeix/BrwoB1T",
+      "sha512": "deCjxwPzNe5Ue7evUNCzTVTYQqtgg0wUeZP5y6pRrf/lliItl+g4ttgy4a/zmYPrTpJ/wkfyfTGRRxGj2CRn2Q==",
+      "integrity": "sha384-r/L7zWGIvnsYetTzkmIBvUPXt0gQcDsLQJhEmkC3d86n+qB3l+S5eeix/BrwoB1T"
+    }
+  }
+}

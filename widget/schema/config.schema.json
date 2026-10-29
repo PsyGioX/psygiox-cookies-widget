@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://psygiox-cookies-widget.vercel.app/widget/schema/config.schema.json",
+  "$comment": "PGX Cookies Widget — Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> — SPDX-License-Identifier: GPL-3.0-only",
+  "title": "PGX Cookies Widget configuration",
+  "description": "Use as a remote config (configUrl) or for IDE completion of PsyCookies.init()/configure(). Reference: docs/API.md",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": ["string", "number"], "default": "1", "description": "Policy version. Changing it asks everybody again." },
+    "region": { "enum": ["auto", "eu", "us", "ru", "global"], "default": "auto" },
+    "lang": { "type": "string", "default": "auto", "description": "auto or a BCP-47 tag." },
+    "fallbackLang": { "type": "string", "default": "en" },
+    "i18nBase": { "type": "string", "description": "Folder with language packs." },
+    "theme": { "enum": ["auto", "light", "dark", "contrast"], "default": "auto" },
+    "tokens": {
+      "type": "object",
+      "description": "Design tokens mapped to --pc-* CSS variables.",
+      "properties": {
+        "bg": { "type": "string" }, "fg": { "type": "string" }, "muted": { "type": "string" }, "line": { "type": "string" }, "surface": { "type": "string" },
+        "accent": { "type": "string" }, "accentFg": { "type": "string" }, "focus": { "type": "string" },
+        "ok": { "type": "string" }, "okBg": { "type": "string" }, "bad": { "type": "string" }, "badBg": { "type": "string" }, "warn": { "type": "string" }, "warnBg": { "type": "string" },
+        "flash": { "type": "string" }, "radius": { "type": "string" }, "font": { "type": "string" }, "shadow": { "type": "string" }, "backdrop": { "type": "string" }
+      },
+      "additionalProperties": { "type": "string" }
+    },
+    "position": { "enum": ["bottom", "top", "bottom-left", "bottom-right", "top-left", "top-right", "center"], "default": "bottom" },
+    "layout": { "enum": ["auto", "bar", "box", "center"], "default": "auto" },
+    "animation": { "enum": ["slide", "fade", "none"], "default": "slide" },
+    "fab": { "type": "boolean", "default": true },
+    "fabPosition": { "enum": ["left", "right"], "default": "left" },
+    "zIndex": { "type": "integer", "default": 2147483000 },
+    "operator": { "type": "string" },
+    "links": {
+      "type": "object",
+      "properties": { "policy": { "type": "string" }, "privacy": { "type": "string" }, "consent": { "type": "string" } },
+      "additionalProperties": false
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" }, "required": { "type": "boolean" }, "sale": { "type": "boolean", "description": "Counts as sale/sharing: locked by GPC in the us profile." },
+              "title": { "type": "string" }, "desc": { "type": "string" },
+              "labels": { "type": "object", "additionalProperties": { "type": "object", "properties": { "title": { "type": "string" }, "desc": { "type": "string" } } } }
+            }
+          }
+        ]
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "propertyNames": { "enum": ["eu", "us", "ru", "global"] },
+      "additionalProperties": {
+        "type": "object",
+        "properties": { "model": { "enum": ["optin", "optout"] }, "ttl": { "type": "integer", "minimum": 1 }, "defaults": { "type": "array", "items": { "type": "string" } }, "gpc": { "enum": ["lock", "default"] }, "dnsmpi": { "type": "boolean" } }
+      }
+    },
+    "ttl": { "type": "integer", "minimum": 0, "default": 0 },
+    "guard": { "enum": ["off", "warn", "enforce"], "default": "enforce" },
+    "monitor": { "type": "boolean", "default": true },
+    "pollMs": { "type": "integer", "minimum": 100, "default": 1000 },
+    "logSize": { "type": "integer", "minimum": 1, "default": 100 },
+    "cookieRules": {
+      "type": "array",
+      "items": { "type": "object", "required": ["match", "category"], "properties": { "match": { "type": "string", "description": "Regular expression for the cookie name." }, "category": { "type": "string" }, "vendor": { "type": "string" } }, "additionalProperties": false }
+    },
+    "gcm": { "type": "boolean", "default": true },
+    "dataLayer": { "type": "boolean", "default": true },
+    "honorGPC": { "type": "boolean", "default": true },
+    "gpc": { "enum": ["auto", true, false], "default": "auto" },
+    "receipt": { "type": "string", "format": "uri-reference" },
+    "cookie": {
+      "type": "object",
+      "properties": { "name": { "type": "string", "default": "psygiox_consent" }, "domain": { "type": "string" }, "path": { "type": "string", "default": "/" }, "sameSite": { "enum": ["Lax", "Strict", "None"], "default": "Lax" } },
+      "additionalProperties": false
+    },
+    "reload": { "enum": ["auto", true, false], "default": "auto" },
+    "css": { "type": "string", "default": "auto" },
+    "nonce": { "type": "string" },
+    "configUrl": { "type": "string" },
+    "manual": { "type": "boolean", "default": false },
+    "debug": { "type": "boolean", "default": false }
+  }
+}

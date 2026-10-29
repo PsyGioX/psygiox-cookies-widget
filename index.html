@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<!-- PGX Cookies Widget · landing page · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only · https://github.com/PsyGioX/psygiox-cookies-widget -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- the widget must be the first script on the page: it guards cookies written by everything that loads after it -->
+<script src="/widget/dist/psygiox-cookies.min.js" data-theme="dark" data-position="bottom-left" data-operator="PsyGioX" data-policy="#faq-cookies" data-tokens='{"accent":"#7dff2e","accentFg":"#0a0c08","radius":"20px"}'></script>
+
+<title data-en="PGX Cookies Widget — cookie banner with real-time cookie tracking">PGX Cookies Widget — баннер куки-файлов с трекингом в реальном времени</title>
+<meta name="description" content="Бесплатный виджет согласия на куки-файлы для GDPR, CCPA/CPRA, GPC и 152-ФЗ: трекинг куки-файлов в реальном времени, Cookie Guard, API, 9 языков. GPL-3.0." data-en-content="Free cookie consent widget for GDPR, CCPA/CPRA, GPC and Russian 152-FZ: real-time cookie tracking, Cookie Guard, full API, 9 languages, Consent Mode v2. Open source, GPL-3.0.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="PsyGioX">
+<link rel="canonical" href="https://psygiox-cookies-widget.vercel.app/" data-en-href="https://psygiox-cookies-widget.vercel.app/en/">
+<link rel="alternate" hreflang="ru" href="https://psygiox-cookies-widget.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://psygiox-cookies-widget.vercel.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://psygiox-cookies-widget.vercel.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PGX Cookies Widget">
+<meta property="og:title" content="PGX Cookies Widget — куки-файлы под контролем в реальном времени" data-en-content="PGX Cookies Widget — cookies under control, in real time">
+<meta property="og:description" content="Виджет куки-файлов для ЕС, США, России и всего мира. Трекинг куки-файлов в реальном времени, Cookie Guard, API, 9 языков. GPL-3.0." data-en-content="Cookie widget for the EU, US, Russia and worldwide. Real-time cookie tracking, Cookie Guard, API, 9 languages. GPL-3.0.">
+<meta property="og:url" content="https://psygiox-cookies-widget.vercel.app/" data-en-content="https://psygiox-cookies-widget.vercel.app/en/">
+<meta property="og:image" content="https://psygiox-cookies-widget.vercel.app/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Логотип PGX Cookies Widget: неоново-зелёные буквы PGX и оранжевая плашка COOKIES WIDGET" data-en-content="PGX Cookies Widget logo: neon green letters PGX and an orange COOKIES WIDGET banner">
+<meta property="og:locale" content="ru_RU" data-en-content="en_US">
+<meta property="og:locale:alternate" content="en_US" data-en-content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PGX Cookies Widget" >
+<meta name="twitter:description" content="Куки-файлы под контролем в реальном времени. GDPR · CCPA/CPRA · GPC · 152-ФЗ. GPL-3.0." data-en-content="Cookies under control, in real time. GDPR · CCPA/CPRA · GPC · 152-FZ. GPL-3.0.">
+<meta name="twitter:image" content="https://psygiox-cookies-widget.vercel.app/og-image.png">
+<meta name="twitter:image:alt" content="Логотип PGX Cookies Widget" data-en-content="PGX Cookies Widget logo">
+
+<meta name="theme-color" content="#0a0c08">
+<meta name="color-scheme" content="dark">
+<meta name="application-name" content="PGX Cookies Widget">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PGX Cookies">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="msapplication-TileColor" content="#0a0c08">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7dff2e">
+<link rel="preload" href="/assets/fonts/titan-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json" id="ld">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://psygiox-cookies-widget.vercel.app/#website","url":"https://psygiox-cookies-widget.vercel.app/","name":"PGX Cookies Widget","inLanguage":["ru","en"],"publisher":{"@id":"https://psygiox-cookies-widget.vercel.app/#author"}},{"@type":"WebPage","@id":"https://psygiox-cookies-widget.vercel.app/#webpage","url":"https://psygiox-cookies-widget.vercel.app/","name":"PGX Cookies Widget — баннер куки-файлов с трекингом в реальном времени","description":"Бесплатный виджет согласия на куки-файлы для GDPR, CCPA/CPRA, GPC и 152-ФЗ: трекинг куки-файлов в реальном времени, Cookie Guard, API, 9 языков. GPL-3.0.","inLanguage":"ru","isPartOf":{"@id":"https://psygiox-cookies-widget.vercel.app/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://psygiox-cookies-widget.vercel.app/og-image.png","width":1200,"height":630}},{"@type":"SoftwareApplication","@id":"https://psygiox-cookies-widget.vercel.app/#software","name":"PGX Cookies Widget","applicationCategory":"DeveloperApplication","operatingSystem":"Any (web browser)","softwareVersion":"1.0.0","description":"Бесплатный виджет согласия на куки-файлы для GDPR, CCPA/CPRA, GPC и 152-ФЗ: трекинг куки-файлов в реальном времени, Cookie Guard, API, 9 языков. GPL-3.0.","image":"https://psygiox-cookies-widget.vercel.app/og-image.png","url":"https://psygiox-cookies-widget.vercel.app/","downloadUrl":"https://psygiox-cookies-widget.vercel.app/widget/dist/psygiox-cookies-widget-1.0.0.zip","license":"https://www.gnu.org/licenses/gpl-3.0.html","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@id":"https://psygiox-cookies-widget.vercel.app/#author"},"sameAs":["https://github.com/PsyGioX/psygiox-cookies-widget"]},{"@type":"SoftwareSourceCode","@id":"https://psygiox-cookies-widget.vercel.app/#source","name":"psygiox-cookies-widget","codeRepository":"https://github.com/PsyGioX/psygiox-cookies-widget","programmingLanguage":"JavaScript","license":"https://www.gnu.org/licenses/gpl-3.0.html","author":{"@id":"https://psygiox-cookies-widget.vercel.app/#author"}},{"@type":"Person","@id":"https://psygiox-cookies-widget.vercel.app/#author","name":"PsyGioX","url":"https://github.com/PsyGioX","sameAs":["https://github.com/PsyGioX"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Это юридическая консультация?","acceptedAnswer":{"@type":"Answer","text":"Нет. Виджет реализует общепринятые практики для каждого региона с консервативными настройками по умолчанию, но ваши тексты, сроки и список куки-файлов зависят от сайта. Покажите их юристу."}},{"@type":"Question","name":"Как выбирается регион?","acceptedAnswer":{"@type":"Answer","text":"По часовому поясу браузера: российские пояса → ru, Европа → eu, пояса США → us, всё остальное → world (строгая модель opt-in). Это эвристика, поэтому при необходимости передавайте настоящий регион с сервера в data-region."}},{"@type":"Question","name":"Можно ли на коммерческом сайте?","acceptedAnswer":{"@type":"Answer","text":"Да, GPL-3.0 это разрешает. Если вы изменяете виджет и распространяете результат, публикуйте изменения под той же лицензией. Читаемые исходники отдаются из /widget/src/. Это краткое пояснение, а не юридическая консультация."}},{"@type":"Question","name":"Что именно видит Cookie Guard?","acceptedAnswer":{"@type":"Answer","text":"Куки-файлы, доступные скриптам страницы: записанные через document.cookie и появившиеся в хранилище (их находят события Cookie Store и лёгкая проверка). HttpOnly-куки-файлы не видны ни одному скрипту — ими управляют на сервере. Значения никогда не показываются и не сохраняются."}},{"@type":"Question","name":"Работает ли с Google Tag Manager?","acceptedAnswer":{"@type":"Answer","text":"Да. Сигналы Consent Mode v2 отправляются до загрузки GTM (держите виджет первым), а событие dataLayer psygiox_consent доступно как триггер."}},{"@type":"Question","name":"Что хранит этот сайт?","acceptedAnswer":{"@type":"Answer","text":"Только необходимый куки-файл psygiox_consent (ваш выбор, до 6–12 месяцев) и офлайн-кэш PWA. Ни аналитики, ни рекламы, ни внешних запросов. Куки-файлы, созданные в демо, пишете вы сами, и они живут только в вашем браузере."}}]}]}</script>
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">К содержимому</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="PGX Cookies Widget"><img src="/assets/brand/logo.svg" width="150" height="64" alt="PGX Cookies Widget" data-en-alt="PGX Cookies Widget"></a>
+    <nav class="nav" aria-label="Разделы" data-en-aria-label="Sections">
+      <a href="#features" data-en="Features">Возможности</a>
+      <a href="#playground" data-en="Demo">Демо</a>
+      <a href="#regions" data-en="Regions">Регионы</a>
+      <a href="#install" data-en="Install">Подключение</a>
+      <a href="#api" data-en="API">API</a>
+      <a href="#faq" data-en="FAQ">FAQ</a>
+    </nav>
+    <div class="tools">
+      <a class="btn btn--ghost btn--sm" id="langlink" href="/en/" hreflang="en" lang="en" data-en="RU" data-en-href="/" data-en-hreflang="ru" data-en-lang="ru" aria-label="English version" data-en-aria-label="Русская версия">EN</a>
+      <button class="btn btn--amber btn--sm" id="pwa-install" type="button" hidden data-en="Install app">Установить</button>
+      <a class="btn btn--sm" href="https://github.com/PsyGioX/psygiox-cookies-widget" rel="noopener">GitHub</a>
+      <details class="menu">
+        <summary aria-label="Меню" data-en-aria-label="Menu">☰</summary>
+        <nav aria-label="Меню" data-en-aria-label="Menu">
+          <a href="#features" data-en="Features">Возможности</a>
+          <a href="#playground" data-en="Demo">Демо</a>
+          <a href="#regions" data-en="Regions">Регионы</a>
+          <a href="#install" data-en="Install">Подключение</a>
+          <a href="#api" data-en="API">API</a>
+          <a href="#faq" data-en="FAQ">FAQ</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div>
+        <span class="sticker"><span data-en="GPL-3.0 · 0 dependencies ·">GPL-3.0 · 0 зависимостей ·</span> <span id="ver">v1.0.0</span></span>
+        <h1 id="h1" data-en='Cookies under control — <span class="hl">in real time</span>'>Куки-файлы под контролем — <span class="hl">в реальном времени</span></h1>
+        <p class="lead" data-en="PGX Cookies Widget is a lightweight cookie-consent widget for the EU, US, Russia and the rest of the world. It sees every cookie the moment it is written, keeps the extras out until consent, and is fully configurable through one API.">PGX Cookies Widget — лёгкий виджет согласия на куки-файлы для ЕС, США, России и всего мира. Он видит каждый куки-файл в момент записи, не пускает лишнее до согласия и целиком настраивается одним API.</p>
+        <div class="cta">
+          <a class="btn" href="#install" data-en="Connect in 30 seconds">Подключить за 30 секунд</a>
+          <a class="btn btn--amber" href="#playground" data-en="Try it live">Попробовать вживую</a>
+        </div>
+        <small data-en="Open source under GPL-3.0. No trackers, no external fonts and no third-party CDNs on this page.">Открытый код под GPL-3.0. Ни трекеров, ни внешних шрифтов, ни сторонних CDN на этой странице.</small>
+      </div>
+      <figure class="term" aria-label="Журнал событий куки-файлов" data-en-aria-label="Cookie event log">
+        <div class="term-bar"><i></i><i></i><i></i><span>pgx://cookie-radar</span><b class="live">LIVE</b></div>
+        <ol class="term-body" id="hero-log" aria-live="off"></ol>
+        <div class="term-foot">
+          <button class="sim" type="button" data-sim="_ga">_ga<small data-en="analytics">аналитика</small></button>
+          <button class="sim" type="button" data-sim="_fbp">_fbp<small data-en="ads">реклама</small></button>
+          <button class="sim" type="button" data-sim="PHPSESSID">PHPSESSID<small data-en="necessary">необходимая</small></button>
+          <button class="sim" type="button" data-sim="*" data-en="Clear">Очистить</button>
+        </div>
+        <p class="term-note" data-en="This is not a recording: the events come from the widget running on this page. Press a button, then accept or reject cookies in the banner.">Это не запись: события приходят из виджета, который работает на этой странице. Нажмите кнопку, затем примите или отклоните куки-файлы в баннере.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stats rv" aria-label="Цифры" data-en-aria-label="Numbers">
+    <div class="wrap">
+      <ul>
+        <li><b><span id="st-gz">20.6</span> KB</b><span data-en="gzip: core + RU/EN texts">gzip: ядро + тексты RU/EN</span></li>
+        <li><b>9</b><span data-en="languages in the box">языков в комплекте</span></li>
+        <li><b>4</b><span data-en="legal profiles: EU · US · RU · World">правовых профиля: EU · US · RU · World</span></li>
+        <li><b>0</b><span data-en="dependencies in the browser">зависимостей в браузере</span></li>
+      </ul>
+    </div>
+  </section>
+  <div class="marquee" aria-hidden="true"><div><span>GDPR</span><span>ePrivacy</span><span>UK GDPR</span><span>CCPA / CPRA</span><span>GPC</span><span>LGPD</span><span>PIPEDA</span><span>152-ФЗ</span><span>Consent Mode v2</span><span>GDPR</span><span>ePrivacy</span><span>UK GDPR</span><span>CCPA / CPRA</span><span>GPC</span><span>LGPD</span><span>PIPEDA</span><span>152-ФЗ</span><span>Consent Mode v2</span></div></div>
+
+  <section class="sec" id="features" aria-labelledby="h-features">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="kicker" data-en="features">возможности</span>
+        <h2 id="h-features" data-en="What ordinary cookie banners don’t do">Чего не умеют обычные баннеры куки-файлов</h2>
+        <p data-en="A banner that only asks is half the job. PGX also watches what the page actually writes, and acts on it.">Баннер, который только спрашивает, — это полдела. PGX ещё и следит, что страница реально записывает, и действует.</p>
+      </div>
+      <div class="bento">
+        <article class="tile tile--lime tile--wide rv">
+          <div class="ico" aria-hidden="true">◉</div>
+          <h3 data-en="Cookie Radar — tracking in real time">Cookie Radar — трекинг в реальном времени</h3>
+          <p data-en="The widget wraps document.cookie and listens to the Cookie Store API: every new, changed and deleted cookie appears in the log instantly — with category, vendor and size. Embed the live panel into your own admin or debug page.">Виджет оборачивает запись document.cookie и слушает Cookie Store API: каждый новый, изменённый и удалённый куки-файл мгновенно попадает в журнал — с категорией, вендором и размером. Живую панель можно встроить в свою админку.</p>
+          <pre><code>PsyCookies.on('cookie', e =&gt; console.log(e.type, e.name, e.category));
+PsyCookies.live.mount('#cookie-monitor');</code></pre>
+        </article>
+        <article class="tile tile--dark rv">
+          <div class="ico" aria-hidden="true">⛨</div>
+          <h3>Cookie Guard</h3>
+          <p data-en="No consent — no cookie. Analytics and ad cookies are blocked as they are written, and ones that show up from outside are deleted.">Нет согласия — нет куки-файла. Запись аналитики и рекламы блокируется на лету, а появившиеся «снаружи» куки-файлы удаляются.</p>
+          <ul class="chips"><li>off</li><li>warn</li><li>enforce</li></ul>
+        </article>
+        <article class="tile tile--amber rv">
+          <div class="ico" aria-hidden="true">{ }</div>
+          <h3 data-en="API for everything">API на всё</h3>
+          <p data-en="Config from data-attributes, an object, a remote JSON or code. Themes, tokens, layouts, categories, rules, events — all changeable at runtime.">Конфиг из data-атрибутов, объекта, удалённого JSON или кода. Темы, токены, раскладки, категории, правила, события — всё меняется на лету.</p>
+        </article>
+        <article class="tile tile--dark tile--wide rv">
+          <div class="ico" aria-hidden="true">文</div>
+          <h3 data-en="A new-generation translation system">Переводы нового образца</h3>
+          <p data-en="Catalogs are built on Intl: plurals (one/few/many), lists, dates, relative time. Texts depend on the region — banner.reject@us. Packs load lazily or ship in one bundle, and registration order does not matter.">Каталоги построены на Intl: множественные числа (one/few/many), списки, даты, относительное время. Тексты зависят от региона — banner.reject@us. Пакеты грузятся лениво или идут одним бандлом, порядок регистрации не важен.</p>
+          <ul class="chips"><li>ru</li><li>en</li><li>de</li><li>fr</li><li>es</li><li>it</li><li>pt</li><li>pl</li><li>uk</li></ul>
+        </article>
+        <article class="tile rv">
+          <div class="ico" aria-hidden="true">§</div>
+          <h3 data-en="Laws of different countries">Законы разных стран</h3>
+          <p data-en="Four profiles — EU, US, Russia and World — with the right consent model, defaults and wording for each.">Четыре профиля — ЕС, США, Россия и мир — со своей моделью согласия, настройками по умолчанию и формулировками.</p>
+        </article>
+        <article class="tile tile--pink rv">
+          <div class="ico" aria-hidden="true">&lt;/&gt;</div>
+          <h3 data-en="Scripts and iframes on consent">Скрипты и iframe по согласию</h3>
+          <p data-en="Mark a tag and it runs only after the category is allowed. Blocked iframes get a neat placeholder.">Пометьте тег — и он выполнится, только когда категория разрешена. Заблокированные iframe получают аккуратную заглушку.</p>
+        </article>
+        <article class="tile tile--sky rv">
+          <div class="ico" aria-hidden="true">G</div>
+          <h3 data-en="Consent Mode v2 and GPC">Consent Mode v2 и GPC</h3>
+          <p data-en="Google Consent Mode v2 and dataLayer events out of the box. A Global Privacy Control signal switches off “sale and sharing” in the US profile.">Google Consent Mode v2 и события dataLayer из коробки. Сигнал Global Privacy Control отключает «продажу и передачу» в профиле США.</p>
+        </article>
+        <article class="tile rv">
+          <div class="ico" aria-hidden="true">✓</div>
+          <h3 data-en="Consent receipts">Квитанции согласия</h3>
+          <p data-en="An anonymous receipt (id, policy version, categories) goes to your endpoint — evidence that consent was given.">Анонимная квитанция (id, версия политики, категории) уходит на ваш endpoint — доказательство, что согласие получено.</p>
+        </article>
+        <article class="tile tile--lime tile--wide rv">
+          <div class="ico" aria-hidden="true">#</div>
+          <h3 data-en="Verifiable builds">Проверяемая сборка</h3>
+          <p data-en="Minified scripts and styles, SHA-256 sums, SRI (sha384), a reproducible archive and immutable versioned URLs. CI fails if the dist folder drifts from the sources. Themes light/dark/contrast, RTL, focus trap and reduced-motion are built in too.">Минифицированные скрипты и стили, суммы SHA-256, SRI (sha384), воспроизводимый архив и неизменяемые версионные URL. CI падает, если dist разошёлся с исходниками. Темы light/dark/contrast, RTL, ловушка фокуса и reduced-motion тоже встроены.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="playground" aria-labelledby="h-play">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="kicker" data-en="demo">демо</span>
+        <h2 id="h-play" data-en="Try it with your hands">Потрогайте руками</h2>
+        <p data-en="This is the real widget. Switch region, language and theme, imitate trackers and watch what happens to the cookies.">Это настоящий виджет. Переключайте регион, язык и тему, имитируйте трекеры и смотрите, что происходит с куки-файлами.</p>
+      </div>
+      <div class="lab">
+        <div class="panel rv">
+          <h3 data-en="Settings">Настройки</h3>
+          <fieldset class="field"><legend data-en="Region">Регион</legend>
+            <div class="seg" id="ctl-region">
+              <input type="radio" name="region" id="r-auto" value="auto" checked><label for="r-auto">auto</label>
+              <input type="radio" name="region" id="r-eu" value="eu"><label for="r-eu">EU</label>
+              <input type="radio" name="region" id="r-us" value="us"><label for="r-us">US</label>
+              <input type="radio" name="region" id="r-ru" value="ru"><label for="r-ru">RU</label>
+              <input type="radio" name="region" id="r-global" value="global"><label for="r-global">World</label>
+            </div>
+          </fieldset>
+          <label class="field"><span data-en="Language">Язык</span>
+            <select id="ctl-lang"><option value="auto">auto</option><option value="ru">Русский</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option><option value="pt">Português</option><option value="pl">Polski</option><option value="uk">Українська</option></select>
+          </label>
+          <fieldset class="field"><legend data-en="Theme">Тема</legend>
+            <div class="seg" id="ctl-theme">
+              <input type="radio" name="theme" id="t-auto" value="auto"><label for="t-auto">auto</label>
+              <input type="radio" name="theme" id="t-light" value="light"><label for="t-light">light</label>
+              <input type="radio" name="theme" id="t-dark" value="dark" checked><label for="t-dark">dark</label>
+              <input type="radio" name="theme" id="t-contrast" value="contrast"><label for="t-contrast">contrast</label>
+            </div>
+          </fieldset>
+          <label class="field"><span data-en="Position">Положение</span>
+            <select id="ctl-pos"><option value="bottom">bottom</option><option value="top">top</option><option value="bottom-left" selected>bottom-left</option><option value="bottom-right">bottom-right</option><option value="top-left">top-left</option><option value="top-right">top-right</option><option value="center">center</option></select>
+          </label>
+          <fieldset class="field"><legend>Cookie Guard</legend>
+            <div class="seg" id="ctl-guard">
+              <input type="radio" name="guard" id="g-off" value="off"><label for="g-off">off</label>
+              <input type="radio" name="guard" id="g-warn" value="warn"><label for="g-warn">warn</label>
+              <input type="radio" name="guard" id="g-enforce" value="enforce" checked><label for="g-enforce">enforce</label>
+            </div>
+          </fieldset>
+          <label class="field"><span data-en="Accent colour">Акцентный цвет</span><input type="color" id="ctl-accent" value="#7dff2e"></label>
+          <label class="check field"><input type="checkbox" id="ctl-gpc"> <span data-en="Imitate a GPC signal">Имитировать сигнал GPC</span></label>
+          <div class="row">
+            <button class="btn btn--sm" type="button" id="act-banner" data-en="Show banner">Показать баннер</button>
+            <button class="btn btn--sm btn--amber" type="button" id="act-settings" data-en="Settings">Настройки</button>
+            <button class="btn btn--sm btn--ghost" type="button" id="act-reset" data-en="Reset consent">Сбросить согласие</button>
+          </div>
+        </div>
+        <div class="lab-right">
+          <div class="panel rv">
+            <h3 data-en="Imitate trackers">Имитация трекеров</h3>
+            <div class="row">
+              <button class="sim" type="button" data-sim="_ga">_ga<small>Google Analytics</small></button>
+              <button class="sim" type="button" data-sim="_ym_uid">_ym_uid<small>Yandex Metrica</small></button>
+              <button class="sim" type="button" data-sim="_fbp">_fbp<small>Meta Pixel</small></button>
+              <button class="sim" type="button" data-sim="_gcl_au">_gcl_au<small>Google Ads</small></button>
+              <button class="sim" type="button" data-sim="PHPSESSID">PHPSESSID<small data-en="session">сессия</small></button>
+              <button class="sim" type="button" data-sim="theme">theme<small data-en="preference">настройка</small></button>
+              <button class="sim" type="button" data-sim="my_cookie">my_cookie<small data-en="unclassified">неизвестная</small></button>
+              <button class="sim" type="button" data-sim="*" data-en="Delete all">Удалить все</button>
+            </div>
+          </div>
+          <div class="panel rv">
+            <h3 data-en="Live panel (PsyCookies.live.mount)">Живая панель (PsyCookies.live.mount)</h3>
+            <div class="embed" id="live-embed"></div>
+          </div>
+          <div class="panel rv">
+            <h3 data-en="Your configuration">Ваша конфигурация</h3>
+            <pre class="cfg" id="cfg-out">PsyCookies.init()</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="regions" aria-labelledby="h-reg">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="kicker" data-en="regions">регионы</span>
+        <h2 id="h-reg" data-en="Europe, America, Russia, the rest of the world">Европа, Америка, Россия и весь остальной мир</h2>
+        <p data-en="Each region has its own consent model. The widget picks the profile for you and you can override any detail.">У каждого региона своя модель согласия. Виджет выбирает профиль сам, а любую деталь можно переопределить.</p>
+      </div>
+      <div class="regions">
+        <article class="reg rv"><h3><i>eu</i> <span data-en="Europe">Европа</span></h3><p data-en="EU, EEA, UK, Switzerland · GDPR, ePrivacy">ЕС, ЕЭЗ, Великобритания, Швейцария · GDPR, ePrivacy</p>
+          <dl><dt data-en="Model">Модель</dt><dd>opt-in</dd><dt data-en="Behaviour">Поведение</dt><dd data-en="Everything optional is off until consent; Accept and Reject look identical; Consent Mode starts as denied.">Всё необязательное выключено до согласия; «Принять» и «Отклонить» выглядят одинаково; Consent Mode стартует в denied.</dd><dt data-en="Re-ask">Повторный запрос</dt><dd data-en="every 180 days">каждые 180 дней</dd></dl></article>
+        <article class="reg rv"><h3><i>us</i> <span data-en="United States">США</span></h3><p data-en="CCPA/CPRA and state laws · GPC">CCPA/CPRA и законы штатов · GPC</p>
+          <dl><dt data-en="Model">Модель</dt><dd>opt-out</dd><dt data-en="Behaviour">Поведение</dt><dd data-en="Analytics and functional are on, sale/sharing is off; GPC locks the switch; the “Your Privacy Choices” link is built in.">Аналитика и функциональные включены, «продажа/передача» выключена; GPC блокирует переключатель; ссылка «Your Privacy Choices» встроена.</dd><dt data-en="Re-ask">Повторный запрос</dt><dd data-en="every 365 days">каждые 365 дней</dd></dl></article>
+        <article class="reg rv"><h3><i>ru</i> <span data-en="Russia">Россия</span></h3><p data-en="Federal Law 152-FZ">Федеральный закон 152-ФЗ</p>
+          <dl><dt data-en="Model">Модель</dt><dd>opt-in</dd><dt data-en="Behaviour">Поведение</dt><dd data-en="Consent is specific, informed and voluntary; links to the cookie policy, privacy policy and consent text; the document version is stored with the choice.">Согласие конкретное, информированное и добровольное; ссылки на политику куки-файлов, политику ПДн и текст согласия; версия документов хранится вместе с выбором.</dd><dt data-en="Re-ask">Повторный запрос</dt><dd data-en="every 365 days">каждые 365 дней</dd></dl></article>
+        <article class="reg rv"><h3><i>world</i> <span data-en="Rest of the world">Остальной мир</span></h3><p data-en="LGPD, PIPEDA / Quebec Law 25, UK GDPR, PDPA …">LGPD, PIPEDA / Закон 25 Квебека, PDPA …</p>
+          <dl><dt data-en="Model">Модель</dt><dd>opt-in</dd><dt data-en="Behaviour">Поведение</dt><dd data-en="The strictest sensible default: nothing optional runs before consent.">Самый строгий разумный вариант: ничего необязательного до согласия.</dd><dt data-en="Re-ask">Повторный запрос</dt><dd data-en="every 180 days">каждые 180 дней</dd></dl></article>
+      </div>
+      <p class="note rv" data-en="The region is guessed from the browser time zone — a heuristic. For accuracy pass it from your server (data-region, for example from the x-vercel-ip-country header). The widget is a tool, not legal advice: have a lawyer review texts and periods for your case.">Регион определяется по часовому поясу браузера — это эвристика. Для точности передавайте его с сервера (data-region, например из заголовка x-vercel-ip-country). Виджет — инструмент, а не юридическая консультация: тексты и сроки для вашего случая должен проверить юрист.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="i18n" aria-labelledby="h-i18n">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="kicker">i18n</span>
+        <h2 id="h-i18n" data-en="Translations without a heavy parser">Переводы без тяжёлого парсера</h2>
+        <p data-en="No ICU parser: the browser does the plurals, numbers, dates and lists. A pack is a single line, and your own language takes one call.">Никакого ICU-парсера: множественные числа, числа, даты и списки считает браузер. Пакет — одна строка, а свой язык добавляется одним вызовом.</p>
+      </div>
+      <div class="split">
+        <pre class="code rv"><code><span class="c">// a pack is just data; the order of loading does not matter</span>
+PsyCookies.i18n.<span class="f">add</span>(<span class="s">'de'</span>, {
+  <span class="s">'banner.title'</span>: <span class="s">'Ihre Privatsphäre ist uns wichtig'</span>,
+  <span class="s">'banner.reject@us'</span>: <span class="s">'Reject non-essential'</span>, <span class="c">// region variant</span>
+  <span class="s">'live.total'</span>: {                           <span class="c">// Intl.PluralRules</span>
+    one:   <span class="s">'{n} Cookie auf dieser Seite'</span>,
+    other: <span class="s">'{n} Cookies auf dieser Seite'</span>
+  }
+});
+PsyCookies.i18n.<span class="f">set</span>(<span class="s">'de'</span>);   <span class="c">// or data-lang="auto"</span>
+PsyCookies.i18n.<span class="f">t</span>(<span class="s">'live.total'</span>, { n: <span class="k">5</span> });</code></pre>
+        <div class="panel rv">
+          <h3 data-en="Plurals live">Множественные числа вживую</h3>
+          <label class="field"><span data-en="Number n">Число n</span><input type="range" id="pl-n" min="0" max="30" value="1"></label>
+          <div class="plural">
+            <output id="pl-out" aria-live="polite">—</output>
+            <span class="meta" id="pl-meta"></span>
+          </div>
+          <p class="plural-note" data-en="The text follows the language selected in the demo above.">Текст следует языку, выбранному в демо выше.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="install" aria-labelledby="h-install">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="kicker" data-en="install">подключение</span>
+        <h2 id="h-install" data-en="By link or by archive">Ссылкой или архивом</h2>
+        <p data-en="Pick what suits you. Every path comes with hashes for verification.">Выберите, как удобнее. К любому способу прилагаются хеши для проверки.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Способ подключения" data-en-aria-label="Install method">
+        <button role="tab" id="tab-cdn" aria-controls="pane-cdn" aria-selected="true" type="button">Vercel / CDN</button>
+        <button role="tab" id="tab-zip" aria-controls="pane-zip" aria-selected="false" tabindex="-1" type="button" data-en="Archive">Архив</button>
+        <button role="tab" id="tab-src" aria-controls="pane-src" aria-selected="false" tabindex="-1" type="button" data-en="Sources / npm">Исходники / npm</button>
+      </div>
+      <div class="pane" role="tabpanel" id="pane-cdn" aria-labelledby="tab-cdn">
+        <ol class="steps">
+          <li data-en="Paste the tag as the first script in &lt;head&gt;. The version folder never changes, so the SRI hash stays valid.">Вставьте тег первым скриптом в &lt;head&gt;. Папка с версией никогда не меняется, поэтому хеш SRI остаётся верным.</li>
+          <li data-en="Add links to your documents and (optionally) the region from the server. The CSS and language packs load automatically.">Добавьте ссылки на свои документы и (по желанию) регион с сервера. CSS и языковые пакеты подтянутся сами.</li>
+          <li data-en="Put data-pc-open on any link to reopen the settings.">Повесьте data-pc-open на любую ссылку, чтобы открывать настройки повторно.</li>
+        </ol>
+        <div class="copybox">
+<pre class="code" id="snip-cdn"><code>&lt;script src="<span data-fill="site">https://psygiox-cookies-widget.vercel.app</span>/widget/dist/v<span data-fill="ver">1.0.0</span>/psygiox-cookies.min.js"
+        integrity="<span data-fill="sri-js">sha384-r/L7zWGIvnsYetTzkmIBvUPXt0gQcDsLQJhEmkC3d86n+qB3l+S5eeix/BrwoB1T</span>" crossorigin="anonymous"
+        data-policy="/cookies" data-privacy="/privacy"&gt;&lt;/script&gt;
+
+&lt;a href="#" data-pc-open&gt;Cookie settings&lt;/a&gt;</code></pre>
+          <button class="btn btn--sm btn--amber" type="button" data-copy="#snip-cdn" data-en="Copy">Копировать</button>
+        </div>
+        <p data-en="One file with all languages and styles (no extra requests): psygiox-cookies.bundle.min.js. The always-fresh link without a version: /widget/dist/psygiox-cookies.min.js (no SRI).">Один файл со всеми языками и стилями (без доп. запросов): psygiox-cookies.bundle.min.js. Ссылка без версии, всегда свежая: /widget/dist/psygiox-cookies.min.js (без SRI).</p>
+      </div>
+      <div class="pane" role="tabpanel" id="pane-zip" aria-labelledby="tab-zip" hidden>
+        <p><a class="btn" href="/widget/dist/psygiox-cookies-widget-1.0.0.zip" download data-fill-href="zip" data-en="Download the archive">Скачать архив</a></p>
+        <p>SHA-256: <code data-fill="sha-zip">749cc8aab726005e06d4548f7148b25f6f4a9a9ab9af177e8bc3c2eab10d85c8</code></p>
+        <div class="copybox">
+<pre class="code" id="snip-zip"><code>unzip psygiox-cookies-widget-<span data-fill="ver">1.0.0</span>.zip
+cd psygiox-cookies
+sha256sum -c SHA256SUMS   <span class="c"># every line must say: OK</span></code></pre>
+          <button class="btn btn--sm btn--amber" type="button" data-copy="#snip-zip" data-en="Copy">Копировать</button>
+        </div>
+      </div>
+      <div class="pane" role="tabpanel" id="pane-src" aria-labelledby="tab-src" hidden>
+        <div class="copybox">
+<pre class="code" id="snip-src"><code>git clone https://github.com/PsyGioX/psygiox-cookies-widget.git
+cd psygiox-cookies-widget
+npm ci
+npm run build    <span class="c"># minify JS/CSS, bundle packs, hashes, archive</span>
+npm run verify   <span class="c"># re-check every hash</span>
+npm test         <span class="c"># behaviour tests</span></code></pre>
+          <button class="btn btn--sm btn--amber" type="button" data-copy="#snip-src" data-en="Copy">Копировать</button>
+        </div>
+      </div>
+
+      <h3 class="rv" id="verify" data-en="Hashes for verification">Хеши для проверки</h3>
+      <div class="tbl-wrap rv">
+        <table>
+          <thead><tr><th data-en="File">Файл</th><th data-en="Size">Размер</th><th>gzip</th><th>SHA-256</th><th>SRI</th></tr></thead>
+          <tbody id="hash-rows"><tr><td colspan="5"><noscript><a href="/widget/dist/SHA256SUMS">widget/dist/SHA256SUMS</a></noscript><span data-en="Loading…">Загрузка…</span></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="api" aria-labelledby="h-api">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="kicker">api</span>
+        <h2 id="h-api" data-en="Configure with attributes, code or JSON">Настройка атрибутами, кодом или JSON</h2>
+        <p data-en="The same options everywhere. Later sources win: defaults → PsyCookiesConfig → data-attributes → init()/configure() → remote JSON.">Одни и те же опции везде. Более поздние источники важнее: значения по умолчанию → PsyCookiesConfig → data-атрибуты → init()/configure() → удалённый JSON.</p>
+      </div>
+      <div class="split">
+        <pre class="code rv"><code><span class="c">&lt;!-- 1. attributes --&gt;</span>
+&lt;script src=".../psygiox-cookies.min.js"
+  data-region="eu" data-lang="auto" data-theme="dark"
+  data-position="bottom-right" data-guard="enforce"
+  data-tokens='{"accent":"#7dff2e","radius":"20px"}'
+  data-receipt="/api/consent"&gt;&lt;/script&gt;
+
+<span class="c">// 2. code</span>
+PsyCookies.<span class="f">configure</span>({
+  categories: [{ id: <span class="s">'chat'</span>, labels: { en: { title: <span class="s">'Chat'</span> } } }],
+  cookieRules: [{ match: <span class="s">'^chat_'</span>, category: <span class="s">'chat'</span> }]
+});</code></pre>
+        <pre class="code rv"><code><span class="c">// 3. runtime</span>
+PsyCookies.<span class="f">open</span>(<span class="s">'live'</span>);              <span class="c">// banner | settings | live</span>
+PsyCookies.<span class="f">set</span>({ analytics: <span class="k">true</span> });
+PsyCookies.<span class="f">allowed</span>(<span class="s">'marketing'</span>);       <span class="c">// boolean</span>
+PsyCookies.theme.<span class="f">set</span>(<span class="s">'dark'</span>);
+PsyCookies.cookies.<span class="f">list</span>();           <span class="c">// name, category, status…</span>
+
+<span class="c">// 4. events</span>
+PsyCookies.<span class="f">on</span>(<span class="s">'consent'</span>, e =&gt; console.log(e.granted, e.revoked));
+PsyCookies.<span class="f">on</span>(<span class="s">'violation'</span>, e =&gt; report(e.name));
+addEventListener(<span class="s">'psygiox-cookies:change'</span>, console.log);</code></pre>
+      </div>
+      <p class="rv"><a class="btn btn--ghost btn--sm" href="https://github.com/PsyGioX/psygiox-cookies-widget/blob/main/docs/API.md" rel="noopener" data-en="Full API reference">Полный справочник API</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <div class="sec-head rv"><span class="kicker">faq</span><h2 id="h-faq" data-en="Questions and answers">Вопросы и ответы</h2></div>
+      <div class="faq">
+        <details class="rv"><summary data-en="Is this legal advice?">Это юридическая консультация?</summary><div class="a" data-en="No. The widget implements widely accepted practices for each region, with conservative defaults, but your texts, periods and the list of cookies depend on your site. Have a lawyer review them.">Нет. Виджет реализует общепринятые практики для каждого региона с консервативными настройками по умолчанию, но ваши тексты, сроки и список куки-файлов зависят от сайта. Покажите их юристу.</div></details>
+        <details class="rv"><summary data-en="How is the region chosen?">Как выбирается регион?</summary><div class="a" data-en="By the browser time zone: Russian zones → ru, Europe → eu, US zones → us, everything else → world (the strict opt-in model). It is a heuristic, so pass the real region from the server in data-region when it matters.">По часовому поясу браузера: российские пояса → ru, Европа → eu, пояса США → us, всё остальное → world (строгая модель opt-in). Это эвристика, поэтому при необходимости передавайте настоящий регион с сервера в data-region.</div></details>
+        <details class="rv"><summary data-en="Can I use it on a commercial site?">Можно ли на коммерческом сайте?</summary><div class="a" data-en="Yes, GPL-3.0 allows it. If you change the widget and distribute the result, publish your changes under the same licence. The readable sources are served from /widget/src/. This is a summary, not legal advice.">Да, GPL-3.0 это разрешает. Если вы изменяете виджет и распространяете результат, публикуйте изменения под той же лицензией. Читаемые исходники отдаются из /widget/src/. Это краткое пояснение, а не юридическая консультация.</div></details>
+        <details class="rv"><summary data-en="What exactly does Cookie Guard see?">Что именно видит Cookie Guard?</summary><div class="a" data-en="Cookies available to page scripts: those written through document.cookie and those that appear in the cookie jar (found by Cookie Store events and a light check). HttpOnly cookies are invisible to any script — they must be managed on the server. Values are never shown or stored.">Куки-файлы, доступные скриптам страницы: записанные через document.cookie и появившиеся в хранилище (их находят события Cookie Store и лёгкая проверка). HttpOnly-куки-файлы не видны ни одному скрипту — ими управляют на сервере. Значения никогда не показываются и не сохраняются.</div></details>
+        <details class="rv"><summary data-en="Does it work with Google Tag Manager?">Работает ли с Google Tag Manager?</summary><div class="a" data-en="Yes. Consent Mode v2 signals are sent before GTM loads (keep the widget first), and the psygiox_consent dataLayer event is available as a trigger.">Да. Сигналы Consent Mode v2 отправляются до загрузки GTM (держите виджет первым), а событие dataLayer psygiox_consent доступно как триггер.</div></details>
+        <details class="rv" id="faq-cookies"><summary data-en="What does this website store?">Что хранит этот сайт?</summary><div class="a" data-en="Only the necessary cookie psygiox_consent (your choice, up to 6–12 months) and the offline cache of the PWA. No analytics, no advertising, no external requests. Cookies created in the demo are written by you and live only in your browser.">Только необходимый куки-файл psygiox_consent (ваш выбор, до 6–12 месяцев) и офлайн-кэш PWA. Ни аналитики, ни рекламы, ни внешних запросов. Куки-файлы, созданные в демо, пишете вы сами, и они живут только в вашем браузере.</div></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img src="/assets/brand/logo.svg" width="130" height="56" alt="PGX Cookies Widget" data-en-alt="PGX Cookies Widget" loading="lazy">
+      <p><small>© 2026 <a href="https://github.com/PsyGioX" rel="noopener">PsyGioX</a> · <a href="https://github.com/PsyGioX/psygiox-cookies-widget#GPL-3.0-1-ov-file" rel="noopener">GPL-3.0</a><br><span data-en="Fonts Titan One and Nunito — SIL OFL 1.1, self-hosted.">Шрифты Titan One и Nunito — SIL OFL 1.1, размещены на этом сайте.</span></small></p>
+    </div>
+    <ul>
+      <li><a href="https://github.com/PsyGioX/psygiox-cookies-widget" rel="noopener">GitHub</a></li>
+      <li><a href="https://github.com/PsyGioX/psygiox-cookies-widget/releases" rel="noopener" data-en="Releases">Релизы</a></li>
+      <li><a href="https://github.com/PsyGioX/psygiox-cookies-widget/issues" rel="noopener" data-en="Issues">Обращения</a></li>
+      <li><a href="/widget/dist/SHA256SUMS">SHA256SUMS</a></li>
+      <li><a href="#" data-pc-open data-en="Cookie settings">Настройки куки-файлов</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

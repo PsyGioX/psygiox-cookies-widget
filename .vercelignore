@@ -1,0 +1,9 @@
+# PGX Cookies Widget · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only
+node_modules
+test
+scripts
+.github
+docs
+.editorconfig
+.gitignore
+package-lock.json

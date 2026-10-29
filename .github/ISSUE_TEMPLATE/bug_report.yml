@@ -1,0 +1,28 @@
+# PGX Cookies Widget · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes: { label: Widget version, placeholder: "1.0.0 (PsyCookies.version)" }
+    validations: { required: true }
+  - type: dropdown
+    id: build
+    attributes:
+      label: How do you load it?
+      options: [min.js + CSS, bundle.min.js, zip archive, from source]
+  - type: input
+    id: browser
+    attributes: { label: Browser and OS }
+  - type: input
+    id: region
+    attributes: { label: Region profile, description: "PsyCookies.region() and your time zone" }
+  - type: textarea
+    id: steps
+    attributes: { label: Steps to reproduce, description: "Include your config (data-* attributes or init() object)." }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: Expected and actual behaviour }
+    validations: { required: true }

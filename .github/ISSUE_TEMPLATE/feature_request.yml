@@ -1,0 +1,17 @@
+# PGX Cookies Widget · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only
+name: Feature request
+description: Suggest an improvement, a language or a cookie signature
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes: { label: What do you need and why? }
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [New language pack, Cookie signature, Legal profile or wording, API, Other]
+  - type: textarea
+    id: ideas
+    attributes: { label: Ideas (optional), description: "For a legal change please link the law or guidance." }

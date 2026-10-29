@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PGX Cookies Widget · Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> · SPDX-License-Identifier: GPL-3.0-only -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://psygiox-cookies-widget.vercel.app/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psygiox-cookies-widget.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psygiox-cookies-widget.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psygiox-cookies-widget.vercel.app/"/>
+  </url>
+  <url>
+    <loc>https://psygiox-cookies-widget.vercel.app/en/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psygiox-cookies-widget.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psygiox-cookies-widget.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psygiox-cookies-widget.vercel.app/"/>
+  </url>
+</urlset>
