@@ -65,7 +65,7 @@ git clone https://github.com/PsyGioX/psygiox-cookies-widget.git && cd psygiox-co
 npm ci
 npm run build     # minify JS/CSS, bundle language packs, hashes, archive, English page, sitemap
 npm run verify    # re-check every hash   (npm run verify -- https://HOST/widget/dist  checks a live server)
-npm test          # 37 behaviour tests
+npm test          # 38 behaviour tests
 ```
 
 Why first? The widget wraps `document.cookie` when it loads. Scripts that run **before** it can write cookies it never sees.
@@ -122,7 +122,7 @@ widget/src/                     readable sources: psygiox-cookies.js / .css / i1
 widget/dist/                    built files, SHA256SUMS, integrity.json, archive, v1.0.0/ (immutable)
 widget/schema/, widget/examples/
 scripts/                        build, build-site, verify, check-headers, brand (logo + icons)
-test/                           37 tests (jsdom)
+test/                           38 tests (jsdom)
 docs/API.md                     reference
 ```
 

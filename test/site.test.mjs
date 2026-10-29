@@ -146,3 +146,14 @@ test('Russian wording: «куки-файл(ы)», never the feminine «кука/
   for (const [name, text] of [['index.html', html.ru.replace(/data-en(-[a-z-]+)?=("[^"]*"|'[^']*')/g, '')], ['ru.js', readFileSync(join(ROOT, 'widget/src/i18n/ru.js'), 'utf8')], ['README.ru.md', existsSync(join(ROOT, 'README.ru.md')) ? readFileSync(join(ROOT, 'README.ru.md'), 'utf8') : ''], ['docs/API.ru.md', existsSync(join(ROOT, 'docs/API.ru.md')) ? readFileSync(join(ROOT, 'docs/API.ru.md'), 'utf8') : '']])
     for (const l of text.split('\n')) assert.ok(!bad.test(l), `${name}: ${l.trim().slice(0, 90)}`);
 });
+
+test('brand SVGs are sane (no NaN from the path serializer, all three letters drawn)', () => {
+  for (const f of ['assets/brand/logo.svg', 'assets/brand/logo-mark.svg', 'assets/brand/og-image.svg', 'favicon.svg', 'safari-pinned-tab.svg']) {
+    const svg = readFileSync(join(ROOT, f), 'utf8');
+    assert.ok(!/NaN|undefined|Infinity/.test(svg), f);
+    assert.ok(/<title[^>]*>PGX Cookies Widget<\/title>/.test(svg), f + ' title');
+  }
+  // the X is the last glyph of the word: its outline must be present in the icon (regression for opentype.js 2.0 toPathData)
+  const mark = readFileSync(join(ROOT, 'assets/brand/logo-mark.svg'), 'utf8');
+  assert.ok((mark.match(/M[\d.-]+ [\d.-]+/g) || []).length >= 6, 'P, G and X outlines');
+});

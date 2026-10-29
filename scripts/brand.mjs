@@ -25,6 +25,20 @@ const C = { ink: '#0a0c08', lime: '#7dff2e', limeHi: '#d4ff7a', limeLo: '#3fc10e
 const COPYX = (s) => s.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const COPY = 'PGX Cookies Widget — Copyright (C) 2026 PsyGioX <https://github.com/PsyGioX> — SPDX-License-Identifier: GPL-3.0-only — https://github.com/PsyGioX/psygiox-cookies-widget';
 
+/** SVG path data from opentype commands. Own serializer: Path#toPathData of opentype.js 2.0 can print "NaN" for some coordinates. */
+const num = (v) => { if (!Number.isFinite(v)) throw new Error('non-finite path coordinate'); return String(+v.toFixed(2)); };
+function pathData(commands) {
+  return commands.map((c) => {
+    switch (c.type) {
+      case 'M': case 'L': return c.type + num(c.x) + ' ' + num(c.y);
+      case 'Q': return 'Q' + [c.x1, c.y1, c.x, c.y].map(num).join(' ');
+      case 'C': return 'C' + [c.x1, c.y1, c.x2, c.y2, c.x, c.y].map(num).join(' ');
+      case 'Z': return 'Z';
+      default: throw new Error('unknown path command ' + c.type);
+    }
+  }).join('');
+}
+
 /** text -> { d, x1, y1, x2, y2, w, h } with the baseline at y = 0 */
 function textPath(str, size, tracking = 0) {
   const path = new opentype.Path(); const glyphs = font.stringToGlyphs(str); let x = 0;
@@ -34,7 +48,7 @@ function textPath(str, size, tracking = 0) {
     if (i < glyphs.length - 1) x += (font.getKerningValue(g, glyphs[i + 1]) * size) / font.unitsPerEm;
   });
   const b = path.getBoundingBox();
-  return { d: path.toPathData(2), x1: b.x1, y1: b.y1, x2: b.x2, y2: b.y2, w: b.x2 - b.x1, h: b.y2 - b.y1 };
+  return { d: pathData(path.commands), x1: b.x1, y1: b.y1, x2: b.x2, y2: b.y2, w: b.x2 - b.x1, h: b.y2 - b.y1 };
 }
 const fit = (t, width) => { const k = width / t.w; return { k, tx: -t.x1 * k, ty: -t.y1 * k, h: t.h * k }; };
 

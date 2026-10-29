@@ -5,6 +5,8 @@ Thanks for helping! The project is licensed under **GPL-3.0-only**; by sending a
 
 ## Set up
 
+Node.js **22.22.2+** (or 24.15+) — required by jsdom 30, which runs the tests. The widget itself has no Node requirement.
+
 ```bash
 git clone https://github.com/PsyGioX/psygiox-cookies-widget.git && cd psygiox-cookies-widget
 npm ci
