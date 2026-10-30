@@ -32,7 +32,7 @@ test.after(() => instances.forEach((i) => i.window.close()));
 
 test('exposes API, version and copyright', async () => {
   const { P } = await boot({ region: 'eu' });
-  assert.equal(P.version, '1.0.0');
+  assert.equal(P.version, '1.0.1');
   assert.equal(P.license, 'GPL-3.0-only');
   assert.match(P.copyright, /PsyGioX/);
   for (const k of ['open', 'accept', 'reject', 'set', 'consent', 'allowed', 'configure', 'on', 'i18n', 'cookies', 'live', 'theme', 'categories']) assert.ok(k in P, k);

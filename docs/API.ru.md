@@ -125,7 +125,7 @@ if (!empty($c['c']['analytics'])) { /* … */ }
 
 ```json
 { "id": "6b1f…", "ts": 1790000000000, "kind": "first", "version": "1", "region": "eu", "lang": "ru",
-  "categories": { "functional": 0, "analytics": 1, "marketing": 0 }, "gpc": false, "origin": "https://example.com", "widget": "1.0.0" }
+  "categories": { "functional": 0, "analytics": 1, "marketing": 0 }, "gpc": false, "origin": "https://example.com", "widget": "1.0.1" }
 ```
 IP-адрес и user agent — это то, что видит *ваш* сервер; виджет ничего больше не добавляет.
 

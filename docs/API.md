@@ -125,7 +125,7 @@ if (!empty($c['c']['analytics'])) { /* … */ }
 
 ```json
 { "id": "6b1f…", "ts": 1790000000000, "kind": "first", "version": "1", "region": "eu", "lang": "de",
-  "categories": { "functional": 0, "analytics": 1, "marketing": 0 }, "gpc": false, "origin": "https://example.com", "widget": "1.0.0" }
+  "categories": { "functional": 0, "analytics": 1, "marketing": 0 }, "gpc": false, "origin": "https://example.com", "widget": "1.0.1" }
 ```
 The IP address and user agent are what *your* server sees; the widget adds nothing else.
 

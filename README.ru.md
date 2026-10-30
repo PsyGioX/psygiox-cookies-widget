@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://github.com/PsyGioX/psygiox-cookies-widget#GPL-3.0-1-ov-file"><img alt="Лицензия GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-7dff2e?style=for-the-badge&labelColor=0a0c08"></a>
-  <img alt="версия 1.0.0" src="https://img.shields.io/badge/version-1.0.0-ffb02e?style=for-the-badge&labelColor=0a0c08">
+  <img alt="версия 1.0.1" src="https://img.shields.io/badge/version-1.0.1-ffb02e?style=for-the-badge&labelColor=0a0c08">
   <img alt="без зависимостей" src="https://img.shields.io/badge/dependencies-0-7dff2e?style=for-the-badge&labelColor=0a0c08">
   <img alt="около 17 КБ gzip" src="https://img.shields.io/badge/gzip-~17%20KB%20%2B%204%20KB%20CSS-ffb02e?style=for-the-badge&labelColor=0a0c08">
 </p>
@@ -42,7 +42,7 @@
 **1. Ссылкой (Vercel или любой статический хостинг).** Подключайте **первым** скриптом в `<head>`:
 
 ```html
-<script src="https://psygiox-cookies-widget.vercel.app/widget/dist/v1.0.0/psygiox-cookies.min.js"
+<script src="https://psygiox-cookies-widget.vercel.app/widget/dist/v1.0.1/psygiox-cookies.min.js"
         integrity="sha384-…"  crossorigin="anonymous"
         data-policy="/cookies" data-privacy="/privacy" data-consent="/consent"></script>
 
@@ -51,10 +51,10 @@
 
 Точное значение `integrity` лежит в [`widget/dist/integrity.json`](widget/dist/integrity.json) и на [сайте](https://psygiox-cookies-widget.vercel.app/#verify). CSS и языковые пакеты подгружаются сами из той же папки. Один файл со всем внутри (без дополнительных запросов): `psygiox-cookies.bundle.min.js`.
 
-**2. Архивом.** Скачайте `psygiox-cookies-widget-1.0.0.zip` из [`widget/dist/`](widget/dist/) или из Releases, распакуйте на сайте и проверьте:
+**2. Архивом.** Скачайте `psygiox-cookies-widget-1.0.1.zip` из [`widget/dist/`](widget/dist/) или из Releases, распакуйте на сайте и проверьте:
 
 ```bash
-unzip psygiox-cookies-widget-1.0.0.zip && cd psygiox-cookies
+unzip psygiox-cookies-widget-1.0.1.zip && cd psygiox-cookies
 sha256sum -c SHA256SUMS      # в каждой строке должно быть OK
 ```
 
@@ -65,7 +65,7 @@ git clone https://github.com/PsyGioX/psygiox-cookies-widget.git && cd psygiox-co
 npm ci
 npm run build     # минификация JS/CSS, бандл языков, хеши, архив, английская страница, sitemap
 npm run verify    # перепроверка всех хешей   (npm run verify -- https://HOST/widget/dist — проверка живого сервера)
-npm test          # 38 тестов поведения
+npm test          # 50 тестов поведения
 ```
 
 Почему первым? Виджет оборачивает `document.cookie` при загрузке. Скрипты, выполненные **до** него, могут записать куки-файлы, которых он не увидит.
@@ -119,14 +119,22 @@ PsyCookies.live.mount('#cookie-monitor');                                   // �
 index.html, assets/, en/        лендинг (RU) + генерируемая английская страница, бренд и шрифты
 manifest.webmanifest, sw.js     PWA
 widget/src/                     читаемые исходники: psygiox-cookies.js / .css / i18n/*.js
-widget/dist/                    сборка, SHA256SUMS, integrity.json, архив, v1.0.0/ (неизменяемая)
+widget/dist/                    сборка, SHA256SUMS, integrity.json, архив, v1.0.1/ (неизменяемая; старые v*/ остаются)
 widget/schema/, widget/examples/
 scripts/                        build, build-site, verify, check-headers, brand (логотип и иконки)
-test/                           38 тестов (jsdom)
+test/                           50 тестов (jsdom)
 docs/                           справочник API
 ```
 
 В каждом файле проекта есть копирайт PsyGioX (`npm run headers` проверяет это в CI), а сам виджет показывает его в окне настроек.
+
+## Живой счётчик использования на лендинге
+
+Раздел «Live» сайта проекта показывает, как виджетом пользуются на этой самой странице: просмотры, выбор в баннере, куки-файлы, остановленные Guard, график за 24 часа и последние 30 событий. Это **не телеметрия виджета**: файл, который вы подключаете на свой сайт, ничего не отправляет.
+
+- `api/stats.js` — serverless-функция Vercel. Принимает пять событий (`view`, `accept`, `reject`, `custom`, `block`) с регионом и языком из фиксированных списков и хранит только счётчики и последние 30 событий. Без куки-файлов, IP-адресов, user agent и идентификаторов; запросы с Do Not Track и Global Privacy Control игнорируются.
+- Постоянное хранение: подключите Upstash Redis / Vercel KV и задайте `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` (или `KV_REST_API_URL` + `KV_REST_API_TOKEN`). Без них счётчики живут в памяти функции и обнуляются при холодном старте.
+- На статическом хостинге без функции раздел показывает только события текущей вкладки.
 
 ## Чего виджет *не* умеет
 

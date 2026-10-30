@@ -1,6 +1,6 @@
 {
   "name": "psygiox-cookies-widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PGX Cookies Widget — universal cookie consent with real-time cookie tracking, Cookie Guard, API and Intl-based i18n for the EU, US, Russia and worldwide.",
   "keywords": [
     "cookie",
@@ -33,7 +33,7 @@
   },
   "config": {
     "siteUrl": "https://psygiox-cookies-widget.vercel.app",
-    "released": "2026-10-29"
+    "released": "2026-10-30"
   },
   "scripts": {
     "build": "node scripts/build.mjs && node scripts/build-site.mjs",

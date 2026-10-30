@@ -61,11 +61,11 @@ html.pc-lock { overflow: hidden; }
 .pc-banner[data-v="bottom"] { bottom: max(12px, env(safe-area-inset-bottom)); }
 .pc-banner[data-v="top"] { top: max(12px, env(safe-area-inset-top)); --pc-dy: -16px; }
 .pc-banner[data-layout="bar"] { left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); max-width: 1040px; margin-inline: auto; }
-.pc-banner[data-layout="box"] { width: min(440px, calc(100vw - 24px)); }
+.pc-banner[data-layout="box"] { width: min(440px, calc(100% - 24px)); }
 .pc-banner[data-layout="box"][data-h="left"] { left: max(12px, env(safe-area-inset-left)); }
 .pc-banner[data-layout="box"][data-h="right"] { right: max(12px, env(safe-area-inset-right)); }
 .pc-banner[data-layout="box"][data-h="center"] { left: 0; right: 0; margin-inline: auto; }
-.pc-banner[data-layout="center"] { inset: 0; margin: auto; width: min(520px, calc(100vw - 24px)); height: fit-content; }
+.pc-banner[data-layout="center"] { inset: 0; margin: auto; width: min(520px, calc(100% - 24px)); height: fit-content; }
 .pc-banner[data-anim="slide"] { animation: pc-up .3s cubic-bezier(.2, .8, .2, 1); }
 .pc-banner[data-anim="fade"] { animation: pc-fade .25s ease; }
 .pc-ba { display: grid; gap: 8px; }

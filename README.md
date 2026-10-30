@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://github.com/PsyGioX/psygiox-cookies-widget#GPL-3.0-1-ov-file"><img alt="GPL-3.0 license" src="https://img.shields.io/badge/license-GPL--3.0-7dff2e?style=for-the-badge&labelColor=0a0c08"></a>
-  <img alt="version 1.0.0" src="https://img.shields.io/badge/version-1.0.0-ffb02e?style=for-the-badge&labelColor=0a0c08">
+  <img alt="version 1.0.1" src="https://img.shields.io/badge/version-1.0.1-ffb02e?style=for-the-badge&labelColor=0a0c08">
   <img alt="no runtime dependencies" src="https://img.shields.io/badge/dependencies-0-7dff2e?style=for-the-badge&labelColor=0a0c08">
   <img alt="~17 KB gzip" src="https://img.shields.io/badge/gzip-~17%20KB%20%2B%204%20KB%20CSS-ffb02e?style=for-the-badge&labelColor=0a0c08">
 </p>
@@ -42,7 +42,7 @@ A banner that only *asks* is half the job. **PGX Cookies Widget also watches wha
 **1. By link (Vercel / any static host).** Put it as the **first** script in `<head>`:
 
 ```html
-<script src="https://psygiox-cookies-widget.vercel.app/widget/dist/v1.0.0/psygiox-cookies.min.js"
+<script src="https://psygiox-cookies-widget.vercel.app/widget/dist/v1.0.1/psygiox-cookies.min.js"
         integrity="sha384-…"  crossorigin="anonymous"
         data-policy="/cookies" data-privacy="/privacy"></script>
 
@@ -51,10 +51,10 @@ A banner that only *asks* is half the job. **PGX Cookies Widget also watches wha
 
 The exact `integrity` value is in [`widget/dist/integrity.json`](widget/dist/integrity.json) and on the [site](https://psygiox-cookies-widget.vercel.app/#verify). CSS and language packs are loaded automatically from the same folder. One file with everything inside (no extra requests): `psygiox-cookies.bundle.min.js`.
 
-**2. By archive.** Download `psygiox-cookies-widget-1.0.0.zip` from [`widget/dist/`](widget/dist/) or Releases, unpack it to your site and verify:
+**2. By archive.** Download `psygiox-cookies-widget-1.0.1.zip` from [`widget/dist/`](widget/dist/) or Releases, unpack it to your site and verify:
 
 ```bash
-unzip psygiox-cookies-widget-1.0.0.zip && cd psygiox-cookies
+unzip psygiox-cookies-widget-1.0.1.zip && cd psygiox-cookies
 sha256sum -c SHA256SUMS      # every line must say OK
 ```
 
@@ -65,7 +65,7 @@ git clone https://github.com/PsyGioX/psygiox-cookies-widget.git && cd psygiox-co
 npm ci
 npm run build     # minify JS/CSS, bundle language packs, hashes, archive, English page, sitemap
 npm run verify    # re-check every hash   (npm run verify -- https://HOST/widget/dist  checks a live server)
-npm test          # 38 behaviour tests
+npm test          # 50 behaviour tests
 ```
 
 Why first? The widget wraps `document.cookie` when it loads. Scripts that run **before** it can write cookies it never sees.
@@ -119,14 +119,22 @@ Full reference: **[docs/API.md](docs/API.md)** · IDE autocompletion for a remot
 index.html, assets/, en/        landing page (RU) + generated English page, brand and fonts
 manifest.webmanifest, sw.js     PWA
 widget/src/                     readable sources: psygiox-cookies.js / .css / i18n/*.js
-widget/dist/                    built files, SHA256SUMS, integrity.json, archive, v1.0.0/ (immutable)
+widget/dist/                    built files, SHA256SUMS, integrity.json, archive, v1.0.1/ (immutable; older v*/ stay)
 widget/schema/, widget/examples/
 scripts/                        build, build-site, verify, check-headers, brand (logo + icons)
-test/                           38 tests (jsdom)
+test/                           50 tests (jsdom)
 docs/API.md                     reference
 ```
 
 Every project file carries the PsyGioX copyright notice (`npm run headers` enforces it in CI), and the widget shows it in the settings dialog.
+
+## Live usage counter on the landing
+
+The “Live” section of the project site shows how the widget is used on that very page: views, banner choices, cookies stopped by the Guard, a 24-hour chart and the last 30 events. It is **not telemetry of the widget** — the file you embed on your site never sends anything.
+
+- `api/stats.js` is a Vercel serverless function. It accepts five events (`view`, `accept`, `reject`, `custom`, `block`) with a region and a language from fixed lists, and stores only counters and the last 30 events. No cookies, IP addresses, user agents or identifiers; Do Not Track and Global Privacy Control requests are ignored.
+- Persistence: add an Upstash Redis / Vercel KV store and set `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` (or `KV_REST_API_URL` + `KV_REST_API_TOKEN`). Without them the counters live in function memory and reset on a cold start.
+- On a static host without the function the section shows the events of the current tab only.
 
 ## What the widget does *not* do
 

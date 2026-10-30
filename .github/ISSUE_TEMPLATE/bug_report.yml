@@ -5,7 +5,7 @@ labels: [bug]
 body:
   - type: input
     id: version
-    attributes: { label: Widget version, placeholder: "1.0.0 (PsyCookies.version)" }
+    attributes: { label: Widget version, placeholder: "1.0.1 (PsyCookies.version)" }
     validations: { required: true }
   - type: dropdown
     id: build
