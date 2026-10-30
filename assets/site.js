@@ -14,7 +14,6 @@
     en: { copy: 'Copy', copied: 'Copied', file: 'File', info: 'ready', first: 'first choice', changed: 'choice changed', allowed: 'allowed', revoked: 'revoked', none: 'none', missing: 'The widget did not load — check your content blockers.', hashFail: 'Could not load integrity.json' },
   }[LANG];
   const P = window.PsyCookies;
-  let quiet = false;   // true while the page imitates trackers by itself: those cookies are not visitor activity and are not counted
 
   /* ---------- reveal on scroll ---------- */
   const rv = $$('.rv');
@@ -67,8 +66,6 @@
     return fetch('/widget/dist/SHA256SUMS').then((r) => r.text()).then((t) => { const m = t.split('\n').find((l) => l.endsWith('.zip')); if (m) fill('sha-zip', m.split(/\s+/)[0]); });
   }).catch(() => { const tb = $('#hash-rows'); if (tb) tb.innerHTML = ''; const td = document.createElement('td'); td.colSpan = 5; td.textContent = TXT.hashFail; const tr = document.createElement('tr'); tr.append(td); tb && tb.append(tr); });
 
-  usage();
-
   /* ---------- everything below needs the widget ---------- */
   if (!P) { const l = $('#hero-log'); if (l) { const li = document.createElement('li'); li.textContent = TXT.missing; l.append(li); } return pwa(); }
 
@@ -91,7 +88,7 @@
     document.cookie = `${name}=${(VALUE[name] || rnd)()}; path=/; max-age=86400; SameSite=Lax`;
   };
   $$('[data-sim]').forEach((b) => b.addEventListener('click', () => simulate(b.dataset.sim)));
-  setTimeout(() => { if (!P.cookies.list().length) { quiet = true; ['_ga', 'PHPSESSID', '_fbp'].forEach((n, i) => setTimeout(() => simulate(n), i * 650)); setTimeout(() => { quiet = false; }, 3 * 650 + 1200); } }, 1400);
+  setTimeout(() => { if (!P.cookies.list().length) { ['_ga', 'PHPSESSID', '_fbp'].forEach((n, i) => setTimeout(() => simulate(n), i * 650)); } }, 1400);
 
   P.live.mount('#live-embed');
 
@@ -126,115 +123,6 @@
   }
   range.addEventListener('input', plural); P.on('lang', plural); P.on('configure', plural); plural(); show();
   pwa();
-
-  /* ---------- live usage: anonymous counters from /api/stats (no ids, no cookies; DNT/GPC respected) ---------- */
-  function usage() {
-    const root = $('#usage'); if (!root) return;
-    const L = {
-      ru: { live: 'LIVE', local: 'ЭТА ВКЛАДКА', off: 'ОФЛАЙН', ev: { view: 'просмотр', accept: 'принять все', reject: 'только необходимые', custom: 'свой выбор', block: 'остановлено' }, reg: { eu: 'EU', us: 'US', ru: 'RU', global: 'World' }, empty: 'Событий пока нет. Выберите что-нибудь в баннере или нажмите на имитацию трекера.', local_note: 'Счётчик /api/stats недоступен на этом хосте — показаны только события этой вкладки.', mem: 'Хранилище не подключено: счётчики живут в памяти функции и обнуляются при её перезапуске.', out: 'Ваш визит не учитывается' },
-      en: { live: 'LIVE', local: 'THIS TAB', off: 'OFFLINE', ev: { view: 'view', accept: 'accept all', reject: 'only necessary', custom: 'custom choice', block: 'blocked' }, reg: { eu: 'EU', us: 'US', ru: 'RU', global: 'World' }, empty: 'No events yet. Pick something in the banner or press a tracker button.', local_note: 'The /api/stats counter is not available on this host — showing events from this tab only.', mem: 'No storage is connected: counters live in the function’s memory and reset when it restarts.', out: 'Your visit is not counted' },
-    }[LANG];
-    const nf = new Intl.NumberFormat(LANG), tf = new Intl.DateTimeFormat(LANG, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    const EV = ['view', 'accept', 'reject', 'custom', 'block'], KEY = 'pgx-usage-optout';
-    const zero = () => ({ view: 0, accept: 0, reject: 0, custom: 0, block: 0 });
-    const status = $('#usage-status'), feedEl = $('#usage-feed'), opt = $('#usage-optout'), note = $('#usage-note');
-    const noteDefault = note ? note.textContent : '';
-
-    // ---- privacy gates
-    const signal = () => navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.msDoNotTrack === '1' || navigator.globalPrivacyControl === true;
-    const stored = () => { try { return localStorage.getItem(KEY) === '1'; } catch { return false; } };
-    const optedOut = () => signal() || stored();
-    if (opt) {
-      opt.checked = optedOut(); opt.disabled = signal();
-      opt.addEventListener('change', () => { try { opt.checked ? localStorage.setItem(KEY, '1') : localStorage.removeItem(KEY); } catch { /* storage blocked: the choice lasts for this tab */ } });
-    }
-
-    // ---- state: the server snapshot, or a session-only one when the API is not there
-    let mode = 'wait', snap = null, echo = [], fails = 0, timer = 0;
-    const local = { total: zero(), hours: Array.from({ length: 24 }, zero), region: {}, lang: {}, feed: [], minutes: 0 };
-    const setMode = (m) => {
-      mode = m; if (!status) return; status.dataset.state = m === 'server' ? 'live' : m === 'local' ? 'local' : m;
-      status.textContent = m === 'server' ? L.live : m === 'local' ? L.local : m === 'off' ? L.off : '…';
-      status.title = m === 'server' && snap && snap.persistent === false ? L.mem : '';
-      if (note) note.textContent = m === 'local' ? L.local_note : noteDefault;
-    };
-
-    // ---- rendering
-    const num = (k, v) => { const el = $(`[data-u="${k}"]`, root); if (!el) return; const s = typeof v === 'number' ? nf.format(v) : v; if (el.textContent !== s) { el.textContent = s; if (typeof v === 'number' && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); } } };
-    const sum = (o) => EV.reduce((a, k) => a + (o[k] || 0), 0);
-    function spark(hours) {
-      const svg = $('#usage-spark'); if (!svg) return; const NS = 'http://www.w3.org/2000/svg'; svg.textContent = '';
-      const max = Math.max(1, ...hours.map((h) => h.view || 0)), H = 52;
-      const mk = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
-      svg.append(mk('line', { x1: 0, x2: 240, y1: H + 2, y2: H + 2 }));
-      hours.forEach((h, i) => {
-        const v = h.view || 0, c = (h.accept || 0) + (h.reject || 0) + (h.custom || 0), hv = v ? Math.max(2, (v / max) * H) : 0, hc = c ? Math.max(2, (Math.min(c, v || c) / max) * H) : 0;
-        if (hv) svg.append(mk('rect', { x: i * 10, y: H + 2 - hv, width: 8, height: hv, rx: 1.5 }));
-        if (hc) svg.append(mk('rect', { class: 'b2', x: i * 10 + 2, y: H + 2 - hc, width: 4, height: hc, rx: 1 }));
-      });
-    }
-    function lists(s) {
-      const reg = $('#usage-regions'), langs = $('#usage-langs');
-      if (reg) { reg.textContent = ''; const max = Math.max(1, ...['eu', 'us', 'ru', 'global'].map((k) => s.region[k] || 0)); ['eu', 'us', 'ru', 'global'].forEach((k) => { const li = document.createElement('li'), n = document.createElement('span'), bar = document.createElement('em'), i = document.createElement('i'), v = document.createElement('span'); n.textContent = L.reg[k]; i.style.width = ((s.region[k] || 0) / max * 100).toFixed(1) + '%'; bar.append(i); v.textContent = nf.format(s.region[k] || 0); li.append(n, bar, v); reg.append(li); }); }
-      if (langs) { langs.textContent = ''; Object.entries(s.lang).sort((a, b) => b[1] - a[1]).slice(0, 6).forEach(([k, v]) => { const li = document.createElement('li'), sm = document.createElement('small'); li.textContent = k; sm.textContent = nf.format(v); li.append(sm); langs.append(li); }); }
-    }
-    function feed(s) {
-      if (!feedEl) return; feedEl.textContent = '';
-      const rows = echo.map((x) => ({ ...x, you: true })).concat(s.feed || []).slice(0, 30);
-      if (!rows.length) { const li = document.createElement('li'); li.textContent = L.empty; feedEl.append(li); return; }
-      rows.forEach((x) => {
-        const li = document.createElement('li'), t = document.createElement('time'), tag = document.createElement('span'), code = document.createElement('code');
-        t.textContent = tf.format(new Date(x.t)); tag.className = 'tag tag--' + x.e; tag.textContent = L.ev[x.e] || x.e; code.textContent = `${L.reg[x.r] || x.r} · ${x.l}`;
-        li.append(t, tag, code); if (x.c) { const em = document.createElement('em'); em.textContent = x.c; li.append(em); } if (x.you) li.className = 'you'; feedEl.append(li);
-      });
-    }
-    function render() {
-      const s = mode === 'server' && snap ? snap : { total: local.total, last24h: local.total, hours: local.hours, region: local.region, lang: local.lang, feed: local.feed, viewsLast15m: local.total.view };
-      const d = s.last24h, choices = d.accept + d.reject + d.custom;
-      num('views', d.view); num('choices', choices); num('blocks', d.block); num('recent', s.viewsLast15m || 0);
-      ['accept', 'custom', 'reject'].forEach((k) => { const w = choices ? d[k] / choices * 100 : 0; const el = $(`#usage-split .s-${k}`); if (el) el.style.width = w.toFixed(1) + '%'; num('p-' + k, choices ? Math.round(w) + '%' : '–'); });
-      spark(s.hours); lists(s); feed(s);
-    }
-
-    // ---- reading (poll while the tab is visible; back off when the API is missing)
-    async function poll() {
-      clearTimeout(timer);
-      if (document.hidden) return;
-      try {
-        const r = await fetch('/api/stats', { cache: 'no-store', credentials: 'omit', headers: { accept: 'application/json' } });
-        if (!r.ok || !/json/.test(r.headers.get('content-type') || '')) throw new Error('no api');
-        const j = await r.json(); if (!j || !j.ok) throw new Error('bad');
-        snap = j; fails = 0; if (!optedOut()) echo = []; setMode('server');
-      } catch { fails++; if (mode !== 'server') setMode('local'); else if (fails >= 3) setMode('off'); }
-      render();
-      timer = setTimeout(poll, Math.min(30000, 5000 * 2 ** Math.max(0, fails - 1)));
-    }
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
-
-    // ---- writing (from this page only; at most 25 events per page view)
-    let sent = 0;
-    function record(ev) {
-      local.total[ev.e]++; local.hours[23][ev.e]++; if (ev.e === 'view') { local.region[ev.r] = (local.region[ev.r] || 0) + 1; local.lang[ev.l] = (local.lang[ev.l] || 0) + 1; }
-      const row = { t: Date.now(), ...ev }; local.feed.unshift(row); local.feed.length = Math.min(local.feed.length, 30); echo.unshift(row); echo.length = Math.min(echo.length, 6);
-      if (mode !== 'server' || optedOut()) render();
-      if (optedOut() || sent >= 25) return; sent++;
-      fetch('/api/stats', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(ev), keepalive: true, credentials: 'omit' })
-        .then((r) => { if (r.ok && mode === 'server') setTimeout(poll, 500); }).catch(() => {});
-    }
-    if (P) {
-      const ctx = () => ({ r: P.region(), l: P.i18n.get() });
-      const OPT = ['functional', 'analytics', 'marketing'];
-      record({ e: 'view', ...ctx() });
-      P.on('consent', (e) => {
-        if (e.source !== 'banner' && e.source !== 'settings') return;                       // our own demo buttons use the API; count real choices only
-        const on = OPT.filter((id) => e.categories && e.categories[id]).length;
-        record({ e: on === OPT.length ? 'accept' : on === 0 ? 'reject' : 'custom', ...ctx() });
-      });
-      let lastBlock = 0;
-      P.on('violation', (e) => { if (quiet || e.action === 'warn' || Date.now() - lastBlock < 800) return; lastBlock = Date.now(); record({ e: 'block', c: e.category || 'unknown', ...ctx() }); });
-    }
-    render(); poll();
-  }
 
   /* ---------- PWA: service worker + install prompt ---------- */
   function pwa() {

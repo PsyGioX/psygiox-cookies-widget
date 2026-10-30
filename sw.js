@@ -7,7 +7,7 @@
  * BUILD is rewritten by `npm run build:widget` (version + hash of dist/SHA256SUMS),
  * so installed copies refresh whenever the widget changes.
  */
-const BUILD = 'v1.0.1-b22248bf4a';
+const BUILD = 'v1.0.1-b1349fde4d';
 const CACHE = 'pgx-cookies-' + BUILD;
 const SHELL = [
   '/', '/en/', '/offline.html', '/assets/site.css', '/assets/site.js', '/assets/brand/logo.svg',
@@ -30,7 +30,7 @@ const put = (req, res) => { if (res && res.ok && res.type === 'basic') { const c
 
 self.addEventListener('fetch', (event) => {
   const req = event.request, url = new URL(req.url);
-  if (req.method !== 'GET' || url.origin !== self.location.origin || SKIP.test(url.pathname) || url.pathname.startsWith('/api/')) return;  // live counters are never cached
+  if (req.method !== 'GET' || url.origin !== self.location.origin || SKIP.test(url.pathname)) return;
 
   if (req.mode === 'navigate') {                       // pages: network first, offline fallback
     event.respondWith(fetch(req).then((r) => put(req, r)).catch(() => caches.match(req).then((m) => m || caches.match('/offline.html'))));

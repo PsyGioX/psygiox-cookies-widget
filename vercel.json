@@ -97,20 +97,6 @@
           "value": "application/manifest+json; charset=utf-8"
         }
       ]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
-        }
-      ]
     }
-  ],
-  "functions": {
-    "api/stats.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }

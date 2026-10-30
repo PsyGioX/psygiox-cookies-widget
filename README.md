@@ -65,7 +65,7 @@ git clone https://github.com/PsyGioX/psygiox-cookies-widget.git && cd psygiox-co
 npm ci
 npm run build     # minify JS/CSS, bundle language packs, hashes, archive, English page, sitemap
 npm run verify    # re-check every hash   (npm run verify -- https://HOST/widget/dist  checks a live server)
-npm test          # 50 behaviour tests
+npm test          # 38 behaviour tests
 ```
 
 Why first? The widget wraps `document.cookie` when it loads. Scripts that run **before** it can write cookies it never sees.
@@ -122,19 +122,11 @@ widget/src/                     readable sources: psygiox-cookies.js / .css / i1
 widget/dist/                    built files, SHA256SUMS, integrity.json, archive, v1.0.1/ (immutable; older v*/ stay)
 widget/schema/, widget/examples/
 scripts/                        build, build-site, verify, check-headers, brand (logo + icons)
-test/                           50 tests (jsdom)
+test/                           38 tests (jsdom)
 docs/API.md                     reference
 ```
 
 Every project file carries the PsyGioX copyright notice (`npm run headers` enforces it in CI), and the widget shows it in the settings dialog.
-
-## Live usage counter on the landing
-
-The “Live” section of the project site shows how the widget is used on that very page: views, banner choices, cookies stopped by the Guard, a 24-hour chart and the last 30 events. It is **not telemetry of the widget** — the file you embed on your site never sends anything.
-
-- `api/stats.js` is a Vercel serverless function. It accepts five events (`view`, `accept`, `reject`, `custom`, `block`) with a region and a language from fixed lists, and stores only counters and the last 30 events. No cookies, IP addresses, user agents or identifiers; Do Not Track and Global Privacy Control requests are ignored.
-- Persistence: add an Upstash Redis / Vercel KV store and set `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` (or `KV_REST_API_URL` + `KV_REST_API_TOKEN`). Without them the counters live in function memory and reset on a cold start.
-- On a static host without the function the section shows the events of the current tab only.
 
 ## What the widget does *not* do
 
